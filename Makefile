@@ -6,7 +6,7 @@
 #    By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 10:44:39 by abonnefo          #+#    #+#              #
-#    Updated: 2023/12/15 14:32:05 by abonnefo         ###   ########.fr        #
+#    Updated: 2023/12/15 16:14:41 by abonnefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRCS_MAIN = srcs/main/main.c \
 
 SRCS_CUB3D = srcs/cub3d/cub3d.c \
 
-SRCS_INIT_PARSING = srcs/parsing/parsing.c \
+SRCS_INIT_PARSING = srcs/init_and_parsing/parsing.c \
+	srcs/init_and_parsing/pars_maps.c \
 
 SRCS_UTILS = srcs/utils/utils.c \
 
@@ -89,7 +90,7 @@ SRCS_PRINTF = libft/ft_printf/ft_printf.c \
 
 OBJS = $(SRCS_MAIN:%.c=$(OBJ_DIR_CUB3D)/%.o) \
 		$(SRCS_CUB3D:%.c=$(OBJ_DIR_CUB3D)/%.o) \
-		$(SRCS_PARSING:%.c=$(OBJ_DIR_CUB3D)/%.o) \
+		$(SRCS_INIT_PARSING:%.c=$(OBJ_DIR_CUB3D)/%.o) \
 		$(SRCS_UTILS:%.c=$(OBJ_DIR_CUB3D)/%.o) \
 		$(SRCS_LIBFT:%.c=$(OBJ_DIR_LIBFT)/%.o) \
 		$(SRCS_LIBFT_BONUS:%.c=$(OBJ_DIR_LIBFT)/%.o) \
