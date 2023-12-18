@@ -6,7 +6,7 @@
 #    By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 10:44:39 by abonnefo          #+#    #+#              #
-#    Updated: 2023/12/18 11:12:31 by abonnefo         ###   ########.fr        #
+#    Updated: 2023/12/18 13:58:31 by abonnefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRCS_MAIN = srcs/main/main.c \
 
 SRCS_CUB3D = srcs/cub3d/cub3d.c \
 
-SRCS_INIT_PARSING = srcs/init_and_parsing/parsing.c \
+SRCS_INIT_PARSING = srcs/init_and_parsing/pars_floor_and_ceiling.c \
+	srcs/init_and_parsing/parsing.c \
 	srcs/init_and_parsing/pars_textures.c \
 	srcs/init_and_parsing/pars_maps.c \
 	srcs/init_and_parsing/put_in_tab.c \
@@ -110,7 +111,7 @@ $(OBJ_DIR_CUB3D)/%.o $(OBJ_DIR_LIBFT)/%.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS)  -lreadline -lhistory -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "\033[5;36m\n-gcc *.c libft done\033[0m"
 	@echo "\033[5;36m-gcc *.c get_next_line done\033[0m"
 	@echo "\033[5;36m-gcc *.c ft_printf done\033[0m"

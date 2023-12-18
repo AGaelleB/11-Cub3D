@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/18 11:41:35 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/18 15:46:41 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 typedef struct s_parser
 {
 	char	**tab;
-	char	**tab_temp;
+	int		index_start_map;
 	int		flag_north;
 	int		flag_south;
 	int		flag_east;
@@ -55,8 +55,11 @@ typedef struct s_parser
 
 /***************************   INIT_AND_PARSING   ***************************/
 
+int		verif_floor_and_ceiling(t_parser *parser);
+
 int		master_parsing(int ac, char **av, t_parser *parser);
 
+int		validate_line(char *line);
 int		master_verif_textures(char *str, t_parser *parser);
 
 void	ft_put_in_tab(char *map, t_parser *parser);
@@ -68,6 +71,7 @@ int		err(char *str);
 int		ft_strncmp_cub3d(char *s1, char *s2, int n);
 int		ft_strcmp_cub3d(char *s1, char *s2);
 char	*copy_from(char *str, char c_start);
+int		find_start_of_map(t_parser *parser);
 
 void	ft_free_tab(char **tab);
 

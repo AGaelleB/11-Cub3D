@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:40:20 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/18 11:09:37 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/18 15:50:13 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,31 @@ char	*copy_from(char *str, char c_start)
 	}
 	else
 		return (NULL);
+}
+
+int	find_start_of_map(t_parser *parser)
+{
+	int	i;
+	int	j;
+	int	is_map_line;
+
+	i = 0;
+	while (parser->tab[i])
+	{
+		j = 0;
+		is_map_line = 1;
+		while (parser->tab[i][j])
+		{
+			if (parser->tab[i][j] != '1' && parser->tab[i][j] != ' ')
+			{
+				is_map_line = 0;
+				break ;
+			}
+			j++;
+		}
+		if (is_map_line && j > 0)
+			return (i);
+		i++;
+	}
+	return (1);
 }

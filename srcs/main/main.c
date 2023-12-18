@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:40:03 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/18 10:09:40 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/18 15:50:29 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ t_parser	init_data_parsing(void)
 	t_parser	parser;
 
 	parser.tab = NULL;
+	parser.index_start_map = 0;
 	parser.flag_north = false;
 	parser.flag_south = false;
 	parser.flag_east = false;
