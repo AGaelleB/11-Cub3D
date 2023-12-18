@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:57:39 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/18 14:56:21 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/18 17:06:35 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	verif_floor_and_ceiling(t_parser *parser)
 	int	i;
 
 	i = 0;
-	while (parser->tab[i])
+	while (i < parser->index_start_map)
 	{
 		if (!set_color(parser, parser->tab[i], "F ", &parser->flag_floor)
 			|| !set_color(parser, parser->tab[i], "C ", &parser->flag_ceiling))

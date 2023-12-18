@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:40:13 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/18 15:50:05 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/18 17:08:00 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ int	master_parsing(int ac, char **av, t_parser *parser)
 {
 	if (master_verif_args(ac, av) != 0)
 		return (1);
-	// if (verif_maps(ac, av) != 0)
-	// 	return (1);
 	if (master_verif_textures(av[1], parser) != 0)
 		return (1);
+	// if (master_verif_maps(ac, av) != 0)
+	// 	return (1);
 	ft_free_tab(parser->tab);
 	return (0);
 }
