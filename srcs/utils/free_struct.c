@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   free_struct.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 14:53:22 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/18 10:42:38 by abonnefo         ###   ########.fr       */
+/*   Created: 2023/12/18 11:07:38 by abonnefo          #+#    #+#             */
+/*   Updated: 2023/12/18 11:08:24 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../../includes/cub3d.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+void	ft_free_tab(char **tab)
 {
-	size_t	i;
+	int	i;
 
-	if (dstsize == 0)
-		return (ft_strlen(src));
 	i = 0;
-	while (src[i] && i < dstsize - 1)
+	while (tab[i])
 	{
-		dst[i] = src[i];
+		free(tab[i]);
 		i++;
 	}
-	dst[i] = '\0';
-	return (ft_strlen(src));
+	free(tab);
 }

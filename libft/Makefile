@@ -6,7 +6,7 @@
 #    By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 12:06:57 by abonnefo          #+#    #+#              #
-#    Updated: 2023/11/13 09:53:28 by abonnefo         ###   ########.fr        #
+#    Updated: 2023/12/18 11:11:53 by abonnefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRC = ft_atoi.c \
 	ft_putstr_fd.c \
 	ft_split.c \
 	ft_strchr.c \
+	ft_strcpy.c \
 	ft_strdup.c \
 	ft_striteri.c \
 	ft_strjoin.c \

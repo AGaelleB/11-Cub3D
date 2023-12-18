@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/15 16:30:29 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/18 11:41:35 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <stdlib.h>
 # include <sys/stat.h>
 # include <unistd.h>
+#include <stdbool.h>
 
 # include "../includes/ft_printf.h"
 # include "../includes/get_next_line.h"
@@ -35,6 +36,17 @@
 # define MAGENTA "\033[35m"
 # define CYAN "\033[36m"
 
+typedef struct s_parser
+{
+	char	**tab;
+	char	**tab_temp;
+	int		flag_north;
+	int		flag_south;
+	int		flag_east;
+	int		flag_west;
+	int		flag_floor;
+	int		flag_ceiling;
+}	t_parser;
 
 
 /*********************************   MAIN   **********************************/
@@ -43,7 +55,11 @@
 
 /***************************   INIT_AND_PARSING   ***************************/
 
-int		master_parsing(int ac, char **av);
+int		master_parsing(int ac, char **av, t_parser *parser);
+
+int		master_verif_textures(char *str, t_parser *parser);
+
+void	ft_put_in_tab(char *map, t_parser *parser);
 
 
 /********************************   UTILS   *********************************/
@@ -51,5 +67,10 @@ int		master_parsing(int ac, char **av);
 int		err(char *str);
 int		ft_strncmp_cub3d(char *s1, char *s2, int n);
 int		ft_strcmp_cub3d(char *s1, char *s2);
+char	*copy_from(char *str, char c_start);
+
+void	ft_free_tab(char **tab);
+
+
 
 #endif

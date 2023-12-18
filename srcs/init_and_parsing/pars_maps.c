@@ -6,15 +6,18 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:13:48 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/15 16:23:10 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/18 09:15:36 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
 /* 
-	parsing 1 
-	parsing collectible
+	parsing des murs avec 1
+	le reste a 0
+	parsing 1 perso et 1 direction
+	
+	
 	
  */
 

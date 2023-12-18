@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:40:20 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/15 16:29:50 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/18 11:09:37 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,22 @@ int	ft_strcmp_cub3d(char *s1, char *s2)
 	while ((s1[i] == s2[i]) && s1[i] && s2[i])
 		i++;
 	return (s1[i] - s2[i]);
+}
+
+char	*copy_from(char *str, char c_start)
+{
+	char	*pos;
+	char	*dest;
+	int		size;
+
+	pos = ft_strchr(str, c_start);
+	if (pos != NULL)
+	{
+		size = ft_strlen(pos);
+		dest = malloc(sizeof(char) * (size + 1));
+		ft_strcpy(dest, pos);
+		return (dest);
+	}
+	else
+		return (NULL);
 }

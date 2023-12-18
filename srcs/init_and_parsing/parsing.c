@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:40:13 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/15 16:25:45 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/18 10:26:51 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	verif_extensions(char *str, char **av)
 	return (1);
 }
 
-int	verif_args(int ac, char **av)
+int	master_verif_args(int ac, char **av)
 {
 	if (ac != 2)
 		return(err("Error\nInvalid number of arguments\n"));
@@ -62,11 +62,14 @@ int	verif_args(int ac, char **av)
 	return (0);
 }
 
-int	master_parsing(int ac, char **av)
+int	master_parsing(int ac, char **av, t_parser *parser)
 {
-	if (verif_args(ac, av) != 0)
+	if (master_verif_args(ac, av) != 0)
 		return (1);
-	// if (verif_maps());
+	if (master_verif_textures(av[1], parser) != 0)
+		return (1);
+	// if (verif_maps(ac, av) != 0)
+	// 	return (1);
 
 	return (0);
 }
