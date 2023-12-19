@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pars_textures.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:53:17 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/18 17:06:40 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/19 11:57:58 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,12 +99,14 @@ int	master_verif_textures(char *map, t_parser *parser)
 	return (0);
 }
 
-/*
-// print tab
-int i = 0;
-	while(parser->tab[i])
+////////////////////////////////
+void print_tab(char **tab)
+{
+	int i = 0;
+	while(tab[i])
 	{
-		printf("%s\n", parser->tab[i]);
+		printf("%s\n", tab[i]);
 		i++;
 	}
-*/
+}
+////////////////////////////////
