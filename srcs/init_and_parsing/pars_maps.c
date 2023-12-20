@@ -6,19 +6,52 @@
 /*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:13:48 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/19 13:06:38 by bfresque         ###   ########.fr       */
+/*   Updated: 2023/12/20 11:59:20 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
 /* 
+	problemes rencontres :
+	- lorsque l'espace se trouve en debut de ligne
+	- lorsque le 0 se trouve en fin de ligne
+
 	parsing des murs avec 1
 	le reste a 0
 	parsing 1 perso et 1 direction
  */
 
-int	verif_space_close(t_parser *parser)
+int	verif_zero_close(t_parser *parser) // 24
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < parser->map_height)
+	{
+		j = 0;
+		while (j < parser->map_width)
+		{
+			if (parser->map[i][j] == '0')
+			{
+				if (i > 0 && parser->map[i - 1][j] == ' ')
+					return (1);
+				if (i < parser->map_height - 1 && parser->map[i + 1][j] == ' ')
+					return (1);
+				if (j > 0 && parser->map[i][j - 1] == ' ')
+					return (1);
+				if (j < parser->map_width - 1 && parser->map[i][j + 1] == ' ')
+					return (1);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+int	verif_space_close(t_parser *parser) // 24
 {
 	int	i;
 	int	j;
@@ -47,7 +80,7 @@ int	verif_space_close(t_parser *parser)
 	return (0);
 }
 
-void	parms_map_size(t_parser *parser)
+void	parms_map_size(t_parser *parser) // 19
 {
 	int	i;
 	int	j;
@@ -71,7 +104,7 @@ void	parms_map_size(t_parser *parser)
 	parser->map_width = max_width;
 }
 
-void	convert_tab_in_map(t_parser *parser)
+void	convert_tab_in_map(t_parser *parser) // 32
 {
 	int	i;
 	int	j;
@@ -80,12 +113,12 @@ void	convert_tab_in_map(t_parser *parser)
 	i = 0;
 	while (parser->tab[i])
 		i++;
-	parser->map = malloc(sizeof(char*) * (i + 1));
+	parser->map = malloc(sizeof(char*) * (i + 1)); // inutile ?
 	if (parser->map == NULL)
 		return;
 	tmp = parser->index_start_map;
 	i = 0;
-	while (parser->tab[tmp] && i < parser->map_height)
+	while (parser->tab[tmp])
 	{
 		j = 0;
 		parser->map[i] = malloc(sizeof(char) * (ft_strlen(parser->tab[tmp]) + 1));
@@ -108,7 +141,7 @@ void	convert_tab_in_map(t_parser *parser)
 	parser->map[i] = NULL;
 }
 
-int	verif_char(char **tab)
+int	verif_char(char **tab) // 24
 {
 	int	i;
 	int	y;
@@ -142,11 +175,13 @@ int	master_verif_maps(t_parser *parser)
 	convert_tab_in_map(parser);
 			print_tab(parser->map); ////////
 	parms_map_size(parser);
-			printf("with : %d\n", parser->map_height); ////////
+			printf("with : %d\n", parser->map_width); ////////
 			printf("height : %d\n", parser->map_height); ////////
 	if (verif_char(parser->map))
 		return (err("Error\nInvalid char in the map.\n"));
-	if (verif_space_close(parser) != 0)
+	if (verif_space_close(parser))
 		return(err("Error\nThe map isn't closed.\n"));
+	if (verif_zero_close(parser))
+		return(err("Error\nA zero isn't closed.\n"));
 	return (0);
 }
