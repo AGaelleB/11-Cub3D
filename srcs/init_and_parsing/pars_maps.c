@@ -6,7 +6,7 @@
 /*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:13:48 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/20 11:59:20 by bfresque         ###   ########.fr       */
+/*   Updated: 2023/12/21 10:39:25 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 /* 
 	problemes rencontres :
 	- lorsque l'espace se trouve en debut de ligne
-	- lorsque le 0 se trouve en fin de ligne
+	- lorsque le 0 se trouve sur une "case" qui c'est vide au dessus ou en dessous
 
 	parsing des murs avec 1
 	le reste a 0
 	parsing 1 perso et 1 direction
  */
 
-int	verif_zero_close(t_parser *parser) // 24
+int	verif_zero_close(t_parser *parser) // 28
 {
 	int	i;
 	int	j;
@@ -31,13 +31,15 @@ int	verif_zero_close(t_parser *parser) // 24
 	while (i < parser->map_height)
 	{
 		j = 0;
-		while (j < parser->map_width)
+		while ((j < parser->map_width) && parser->map[i][j])
 		{
 			if (parser->map[i][j] == '0')
 			{
-				if (i > 0 && parser->map[i - 1][j] == ' ')
+				if (parser->map[i][0] == '0')
 					return (1);
-				if (i < parser->map_height - 1 && parser->map[i + 1][j] == ' ')
+				if (i > 0 && (parser->map[i - 1][j] == ' ' || !parser->map[i - 1][j]))
+					return (1);
+				if (i < parser->map_height - 1 && (parser->map[i + 1][j] == ' ' || !parser->map[i + 1][j]))
 					return (1);
 				if (j > 0 && parser->map[i][j - 1] == ' ')
 					return (1);
@@ -46,6 +48,8 @@ int	verif_zero_close(t_parser *parser) // 24
 			}
 			j++;
 		}
+		if (parser->map[i][--j] == '0')
+			return (1);
 		i++;
 	}
 	return (0);
