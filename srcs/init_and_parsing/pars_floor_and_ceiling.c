@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:57:39 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/18 17:06:35 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:16:35 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	free_error_set_color(char *dest, t_parser *parser, char **tab_color)
 {
 	err("Error\nBad color\n");
 	free(dest);
-	ft_free_tab(parser->tab);
-	ft_free_tab(tab_color);
+	free_tab(parser->tab);
+	free_tab(tab_color);
 	exit(1);
 }
 
@@ -59,7 +59,7 @@ int	check_error_numbers(t_parser *parser, char *str)
 	i = 0;
 	check_tab_color(parser, dest, tab_color);
 	free(dest);
-	ft_free_tab(tab_color);
+	free_tab(tab_color);
 	return (0);
 }
 
@@ -71,7 +71,7 @@ int	set_color(t_parser *parser, char *line,
 		if (!validate_line(line))
 		{
 			err("Error\nBad color\n");
-			ft_free_tab(parser->tab);
+			free_tab(parser->tab);
 			exit(1);
 		}
 		if (check_error_numbers(parser, line) == 0)
@@ -96,7 +96,7 @@ int	verif_floor_and_ceiling(t_parser *parser)
 		return (0);
 	else
 	{
-		ft_free_tab(parser->tab);
+		free_tab(parser->tab);
 		return (err("Error\nBad color\n"));
 	}
 	return (0);

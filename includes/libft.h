@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:33:50 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/18 11:13:31 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/21 18:25:27 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char		*ft_strrchr(const char *s, int c);
 
 size_t		ft_strlcat(char *dst, const char *src, size_t size);
 size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
-size_t		ft_strlen(const char *str);
+int			ft_strlen(const char *str);
 
 /**************************************************************************/
 /************************          PART 2          ************************/

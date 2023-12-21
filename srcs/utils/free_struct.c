@@ -6,13 +6,13 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:07:38 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/18 15:50:20 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:16:35 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	ft_free_tab(char **tab)
+void	free_tab(char **tab)
 {
 	int	i;
 

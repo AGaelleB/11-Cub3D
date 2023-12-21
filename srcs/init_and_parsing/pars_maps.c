@@ -3,26 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   pars_maps.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 16:13:48 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/21 10:39:25 by bfresque         ###   ########.fr       */
+/*   Created: 2023/12/21 16:02:00 by abonnefo          #+#    #+#             */
+/*   Updated: 2023/12/21 18:33:32 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-/* 
-	problemes rencontres :
-	- lorsque l'espace se trouve en debut de ligne
-	- lorsque le 0 se trouve sur une "case" qui c'est vide au dessus ou en dessous
-
-	parsing des murs avec 1
-	le reste a 0
-	parsing 1 perso et 1 direction
- */
-
-int	verif_zero_close(t_parser *parser) // 28
+int	verif_zero_close(t_parser *parser)
 {
 	int	i;
 	int	j;
@@ -37,9 +27,11 @@ int	verif_zero_close(t_parser *parser) // 28
 			{
 				if (parser->map[i][0] == '0')
 					return (1);
-				if (i > 0 && (parser->map[i - 1][j] == ' ' || !parser->map[i - 1][j]))
+				if (i > 0 && (parser->map[i - 1][j] == ' '
+					|| !parser->map[i - 1][j]))
 					return (1);
-				if (i < parser->map_height - 1 && (parser->map[i + 1][j] == ' ' || !parser->map[i + 1][j]))
+				if (i < parser->map_height - 1 && (parser->map[i + 1][j] == ' '
+					|| !parser->map[i + 1][j]))
 					return (1);
 				if (j > 0 && parser->map[i][j - 1] == ' ')
 					return (1);
@@ -55,26 +47,37 @@ int	verif_zero_close(t_parser *parser) // 28
 	return (0);
 }
 
-int	verif_space_close(t_parser *parser) // 24
+int	verif_space_close(t_parser *parser)
 {
 	int	i;
 	int	j;
+	int	row_length;
 
 	i = 0;
 	while (i < parser->map_height)
 	{
 		j = 0;
-		while (j < parser->map_width)
+		row_length = ft_strlen(parser->map[i]);
+		while (j < row_length)
 		{
 			if (parser->map[i][j] == ' ')
 			{
-				if (i > 0 && (parser->map[i - 1][j] != '1' && parser->map[i - 1][j] != ' '))
+				if ((i > 0) && (j < ft_strlen(parser->map[i - 1]))
+					&& ((parser->map[i - 1][j] != '1')
+					&& (parser->map[i - 1][j] != ' ')))
 					return (1);
-				if (i < parser->map_height - 1 && (parser->map[i + 1][j] != '1' && parser->map[i + 1][j] != ' '))
+				if ((i < parser->map_height - 1)
+					&& (j < ft_strlen(parser->map[i + 1]))
+					&& ((parser->map[i + 1][j] != '1')
+					&& (parser->map[i + 1][j] != ' ')))
 					return (1);
-				if (j > 0 && (parser->map[i][j - 1] != '1' && parser->map[i][j - 1] != ' '))
+				if ((j > 0 && parser->map[i][j - 1])
+					&& (parser->map[i][j - 1] != '1'
+					&& (parser->map[i][j - 1] != ' ')))
 					return (1);
-				if (j < parser->map_width - 1 && (parser->map[i][j + 1] != '1' && parser->map[i][j + 1] != ' '))
+				if ((j < parser->map_width - 1) && (parser->map[i][j + 1])
+					&& ((parser->map[i][j + 1] != '1')
+					&& (parser->map[i][j + 1] != ' ')))
 					return (1);
 			}
 			j++;
@@ -84,7 +87,7 @@ int	verif_space_close(t_parser *parser) // 24
 	return (0);
 }
 
-void	parms_map_size(t_parser *parser) // 19
+void	parms_map_size(t_parser *parser)
 {
 	int	i;
 	int	j;
@@ -108,7 +111,7 @@ void	parms_map_size(t_parser *parser) // 19
 	parser->map_width = max_width;
 }
 
-void	convert_tab_in_map(t_parser *parser) // 32
+int	convert_tab_in_map(t_parser *parser)
 {
 	int	i;
 	int	j;
@@ -117,21 +120,29 @@ void	convert_tab_in_map(t_parser *parser) // 32
 	i = 0;
 	while (parser->tab[i])
 		i++;
-	parser->map = malloc(sizeof(char*) * (i + 1)); // inutile ?
+	parser->map = malloc(sizeof(char *) * (i + 1));
 	if (parser->map == NULL)
-		return;
+		return (1);
 	tmp = parser->index_start_map;
 	i = 0;
 	while (parser->tab[tmp])
 	{
 		j = 0;
+		if ((ft_strlen(parser->tab[tmp]) == 0)
+			|| is_all_space(parser->tab[tmp]))
+		{
+			while (i > 0)
+				free(parser->map[--i]);
+			free(parser->map);
+			return (1);
+		}
 		parser->map[i] = malloc(sizeof(char) * (ft_strlen(parser->tab[tmp]) + 1));
 		if (parser->map[i] == NULL)
 		{
 			while (i > 0)
 				free(parser->map[--i]);
 			free(parser->map);
-			return;
+			return (1);
 		}
 		while (parser->tab[tmp][j])
 		{
@@ -143,9 +154,10 @@ void	convert_tab_in_map(t_parser *parser) // 32
 		i++;
 	}
 	parser->map[i] = NULL;
+	return (0);
 }
 
-int	verif_char(char **tab) // 24
+int	verif_char(char **tab)
 {
 	int	i;
 	int	y;
@@ -161,7 +173,7 @@ int	verif_char(char **tab) // 24
 			if (tab[i][y] != ' ' && tab[i][y] != '0' && tab[i][y] != '1'
 				&& tab[i][y] != 'N' && tab[i][y] != 'S' && tab[i][y] != 'E'
 				&& tab[i][y] != 'W')
-					return (1);
+				return (1);
 			if (tab[i][y] == 'N' || tab[i][y] == 'S'
 				|| tab[i][y] == 'E' || tab[i][y] == 'W')
 					flag_pos++;
@@ -176,16 +188,30 @@ int	verif_char(char **tab) // 24
 
 int	master_verif_maps(t_parser *parser)
 {
-	convert_tab_in_map(parser);
-			print_tab(parser->map); ////////
+	if (convert_tab_in_map(parser))
+	{
+		free_tab(parser->tab);
+		return (err("Error\nEmpty line in the map\n"));
+	}
+	print_tab(parser->map);
 	parms_map_size(parser);
-			printf("with : %d\n", parser->map_width); ////////
-			printf("height : %d\n", parser->map_height); ////////
 	if (verif_char(parser->map))
-		return (err("Error\nInvalid char in the map.\n"));
-	if (verif_space_close(parser))
-		return(err("Error\nThe map isn't closed.\n"));
+	{
+		free_tab(parser->tab);
+		free_tab(parser->map);
+		return (err("Error\nInvalid char in the map\n"));
+	}
 	if (verif_zero_close(parser))
-		return(err("Error\nA zero isn't closed.\n"));
+	{
+		free_tab(parser->tab);
+		free_tab(parser->map);
+		return (err("Error\nA zero isn't closed\n"));
+	}
+	if (verif_space_close(parser))
+	{
+		free_tab(parser->tab);
+		free_tab(parser->map);
+		return (err("Error\nThe map isn't closed\n"));
+	}
 	return (0);
 }

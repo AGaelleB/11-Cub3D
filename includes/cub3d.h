@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/20 11:01:54 by bfresque         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:16:35 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,13 @@ void	ft_put_in_tab(char *map, t_parser *parser);
 
 /********************************   UTILS   *********************************/
 
+void	free_tab(char **tab);
+
 int		err(char *str);
 int		ft_strncmp_cub3d(char *s1, char *s2, int n);
 int		ft_strcmp_cub3d(char *s1, char *s2);
 char	*copy_from(char *str, char c_start);
 int		find_start_of_map(t_parser *parser);
-
-void	ft_free_tab(char **tab);
-
-
+int		is_all_space(char *input);
 
 #endif

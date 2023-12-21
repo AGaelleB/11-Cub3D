@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pars_textures.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:53:17 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/19 11:57:58 by bfresque         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:16:35 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	check_error_textures(t_parser *parser, char *str)
 	{
 		err("Error\nBad texture\n");
 		free(dest);
-		ft_free_tab(parser->tab);
+		free_tab(parser->tab);
 		exit(1);
 	}
 	free(dest);
@@ -39,10 +39,10 @@ int	validate_line(char *line)
 		count++;
 	if (count != 2)
 	{
-		ft_free_tab(split_line);
+		free_tab(split_line);
 		return (0);
 	}
-	ft_free_tab(split_line);
+	free_tab(split_line);
 	return (1);
 }
 
@@ -54,7 +54,7 @@ int	set_texture(t_parser *parser, char *line,
 		if (!validate_line(line))
 		{
 			err("Error\nBad texture\n");
-			ft_free_tab(parser->tab);
+			free_tab(parser->tab);
 			exit(1);
 		}
 		if (check_error_textures(parser, line) == 0)
@@ -82,7 +82,7 @@ int	verif_wall(t_parser *parser)
 		return (0);
 	else
 	{
-		ft_free_tab(parser->tab);
+		free_tab(parser->tab);
 		return (err("Error\nBad texture\n"));
 	}
 	return (0);

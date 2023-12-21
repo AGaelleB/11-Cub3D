@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:40:20 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/18 15:50:13 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:15:17 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,20 @@ int	find_start_of_map(t_parser *parser)
 		}
 		if (is_map_line && j > 0)
 			return (i);
+		i++;
+	}
+	return (1);
+}
+
+int	is_all_space(char *input)
+{
+	int	i;
+
+	i = 0;
+	while (input[i])
+	{
+		if (!(input[i] >= 9 && input[i] <= 13) && input[i] != 32)
+			return (0);
 		i++;
 	}
 	return (1);
