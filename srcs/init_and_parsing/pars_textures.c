@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:53:17 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/22 10:53:55 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/22 11:08:04 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,7 @@ int	set_texture(t_parser *parser, char *line,
 	return (1);
 }
 
-char *trim_start(char *str)
-{
-	while (*str == ' ' || *str == '\t')
-	{
-		str++;
-	}
-	return str;
-}
-
-int verif_textures_wall(t_parser *parser)
+int	verif_textures_wall(t_parser *parser)
 {
 	int		i;
 	char	*trimmed_line;
@@ -98,7 +89,7 @@ int verif_textures_wall(t_parser *parser)
 	}
 }
 
-int verif_parameters(t_parser *parser)
+int	verif_parameters(t_parser *parser)
 {
 	int		i;
 	char	**split_line;
@@ -109,12 +100,12 @@ int verif_parameters(t_parser *parser)
 	{
 		trimmed_line = trim_start(parser->tab[i]);
 		split_line = ft_split(trimmed_line, ' ');
-		if (split_line[0] && (ft_strcmp_cub3d(split_line[0], "NO") != 0 &&
-							  ft_strcmp_cub3d(split_line[0], "SO") != 0 &&
-							  ft_strcmp_cub3d(split_line[0], "WE") != 0 &&
-							  ft_strcmp_cub3d(split_line[0], "EA") != 0 &&
-							  ft_strcmp_cub3d(split_line[0], "F") != 0 &&
-							  ft_strcmp_cub3d(split_line[0], "C") != 0))
+		if (split_line[0] && (ft_strcmp_cub3d(split_line[0], "NO") != 0
+				&& ft_strcmp_cub3d(split_line[0], "SO") != 0
+				&& ft_strcmp_cub3d(split_line[0], "WE") != 0
+				&& ft_strcmp_cub3d(split_line[0], "EA") != 0
+				&& ft_strcmp_cub3d(split_line[0], "F") != 0
+				&& ft_strcmp_cub3d(split_line[0], "C") != 0))
 		{
 			free_tab(split_line);
 			free_tab(parser->tab);
@@ -125,29 +116,3 @@ int verif_parameters(t_parser *parser)
 	}
 	return (0);
 }
-
-
-int	master_verif_textures(char *map, t_parser *parser)
-{
-	ft_put_in_tab(map, parser);
-	parser->index_start_map = find_start_of_map(parser);
-	if (verif_parameters(parser) != 0)
-		return (1);
-	if (verif_textures_wall(parser) != 0)
-		return (1);
-	if (verif_floor_and_ceiling(parser) != 0)
-		return (1);
-	return (0);
-}
-
-////////////////////////////////
-void print_tab(char **tab)
-{
-	int i = 0;
-	while(tab[i])
-	{
-		printf("%s\n", tab[i]);
-		i++;
-	}
-}
-////////////////////////////////

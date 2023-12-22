@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:40:03 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/21 18:34:48 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/22 14:55:45 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ t_parser	init_data_parsing(void)
 	parser.flag_west = false;
 	parser.flag_floor = false;
 	parser.flag_ceiling = false;
+	parser.map_width = 0;
+	parser.map_height = 0;
 	return (parser);
 }
 
@@ -40,9 +42,3 @@ int	main(int ac, char **av)
 	free_tab(parser.map);
 	return (0);
 }
-
-/* 
-	ne pas accepter la ligne vide en fin de file
-	=> parcourir et si derniere = \n faux
-
- */

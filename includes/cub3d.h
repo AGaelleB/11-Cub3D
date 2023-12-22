@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/22 10:56:46 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/22 14:51:31 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,38 +51,44 @@ typedef struct s_parser
 	int		map_height;
 }	t_parser;
 
-/* poubelle */
-void print_tab(char **tab);
-
-
-char	*trim_start(char *str);
-
-
 /*********************************   MAIN   **********************************/
 
 
 
 /***************************   INIT_AND_PARSING   ***************************/
 
+int		convert_tab_in_map(t_parser *parser);
+void	parms_map_size(t_parser *parser);
+
 int		verif_floor_and_ceiling(t_parser *parser);
 
-int		master_verif_maps(t_parser *parser);
+int		verif_zero_close(t_parser *parser);
+int		verif_space_close(t_parser *parser);
+
+int		validate_line(char *line);
+int		verif_textures_wall(t_parser *parser);
+int		verif_parameters(t_parser *parser);
 
 int		master_parsing(int ac, char **av, t_parser *parser);
 
-int		validate_line(char *line);
-int		master_verif_textures(char *str, t_parser *parser);
-
+int		check_no_map(char *str);
 void	ft_put_in_tab(char *map, t_parser *parser);
-
 
 /********************************   UTILS   *********************************/
 
 void	free_tab(char **tab);
 
-int		err(char *str);
 int		ft_strncmp_cub3d(char *s1, char *s2, int n);
 int		ft_strcmp_cub3d(char *s1, char *s2);
+
+char	*ft_read_and_join(char *map);
+
+int		verif_directory(char *str);
+int		verif_extensions(char *str, char **av);
+char	*trim_start(char *str);
+int		verif_char(char **tab);
+
+int		err(char *str);
 char	*copy_from(char *str, char c_start);
 int		find_start_of_map(t_parser *parser);
 int		is_all_space(char *input);

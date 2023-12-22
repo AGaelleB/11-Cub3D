@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:57:39 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/22 10:57:10 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/22 11:08:33 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int	verif_floor_and_ceiling(t_parser *parser)
 {
 	int		i;
 	char	*trimmed_line;
+
 	i = 0;
 	while (i < parser->index_start_map)
 	{

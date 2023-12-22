@@ -6,7 +6,7 @@
 #    By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 10:44:39 by abonnefo          #+#    #+#              #
-#    Updated: 2023/12/22 10:43:22 by abonnefo         ###   ########.fr        #
+#    Updated: 2023/12/22 14:52:21 by abonnefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,14 +24,18 @@ SRCS_MAIN = srcs/main/main.c \
 
 SRCS_CUB3D = srcs/cub3d/cub3d.c \
 
-SRCS_INIT_PARSING = srcs/init_and_parsing/pars_floor_and_ceiling.c \
+SRCS_INIT_PARSING = srcs/init_and_parsing/create_map.c \
+	srcs/init_and_parsing/pars_floor_and_ceiling.c \
 	srcs/init_and_parsing/parsing.c \
 	srcs/init_and_parsing/pars_textures.c \
 	srcs/init_and_parsing/pars_maps.c \
 	srcs/init_and_parsing/put_in_tab.c \
 
-SRCS_UTILS = srcs/utils/utils.c \
-	srcs/utils/free_struct.c \
+SRCS_UTILS = srcs/utils/free_struct.c \
+	srcs/utils/libft_modify.c \
+	srcs/utils/read_and_join.c \
+	srcs/utils/utils_parsing.c \
+	srcs/utils/utils.c \
 
 SRCS_LIBFT = libft/ft_atoi.c \
 	libft/ft_bzero.c \

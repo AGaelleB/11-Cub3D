@@ -6,50 +6,11 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:40:13 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/21 18:36:17 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/22 14:46:05 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
-int	verif_directory(char *str)
-{
-	int	fd;
-
-	fd = open(str, O_DIRECTORY);
-	if (fd != -1)
-	{
-		err("Error\n");
-		err(str);
-		err(" is a directory\n");
-		return (1);
-	}
-	fd = open(str, O_RDONLY);
-	if ((fd < 0))
-	{
-		perror(str);
-		return (1);
-	}
-	close(fd);
-	return (0);
-}
-
-int	verif_extensions(char *str, char **av)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	i -= 4;
-	if (str[i] == '.' && str[i + 1] == 'c' && str[i + 2] == 'u'
-		&& str[i + 3] == 'b')
-		return (0);
-	err("Error\n");
-	err(av[1]);
-	err(" isn't a .cub file\n");
-	return (1);
-}
 
 int	master_verif_args(int ac, char **av)
 {
@@ -59,6 +20,48 @@ int	master_verif_args(int ac, char **av)
 		return (1);
 	if (verif_directory(av[1]) != 0)
 		return (1);
+	return (0);
+}
+
+int	master_verif_textures(char *map, t_parser *parser)
+{
+	ft_put_in_tab(map, parser);
+	parser->index_start_map = find_start_of_map(parser);
+	if (verif_parameters(parser) != 0)
+		return (1);
+	if (verif_textures_wall(parser) != 0)
+		return (1);
+	if (verif_floor_and_ceiling(parser) != 0)
+		return (1);
+	return (0);
+}
+
+int	master_verif_maps(t_parser *parser)
+{
+	if (convert_tab_in_map(parser))
+	{
+		free_tab(parser->tab);
+		return (err("Error\nEmpty line in the map\n"));
+	}
+	parms_map_size(parser);
+	if (verif_char(parser->map))
+	{
+		free_tab(parser->tab);
+		free_tab(parser->map);
+		return (err("Error\nInvalid char in the map\n"));
+	}
+	if (verif_zero_close(parser))
+	{
+		free_tab(parser->tab);
+		free_tab(parser->map);
+		return (err("Error\nA zero isn't closed\n"));
+	}
+	if (verif_space_close(parser))
+	{
+		free_tab(parser->tab);
+		free_tab(parser->map);
+		return (err("Error\nThe map isn't closed\n"));
+	}
 	return (0);
 }
 
