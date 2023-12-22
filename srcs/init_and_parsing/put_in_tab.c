@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 10:14:28 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/21 17:29:26 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/22 10:03:58 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_read_and_join(char *map)
 	fd = open(map, O_RDWR);
 	if (fd < 0)
 	{
-		ft_printf("Error : Invalid read\n");
+		err("Error\nInvalid read\n");
 		return (NULL);
 	}
 	s1 = ft_calloc(sizeof(char), 1);
@@ -31,7 +31,7 @@ char	*ft_read_and_join(char *map)
 	s2 = get_next_line(fd);
 	if (!s2)
 	{
-		ft_printf("%s", "Error: The file is empty.\n");
+		err("Error\nThe file is empty\n");
 		free(s1);
 		return (NULL);
 	}
@@ -64,11 +64,6 @@ int	find_map_start(char *str)
 			j++;
 		i++;
 	}
-	if (j != 6)
-	{
-		printf("\nError\nMissing textures or colors information\n");
-		return (-1);
-	}
 	while (str[i] && str[i] != '\n')
 		i++;
 	while (str[i] == '\n')
@@ -76,40 +71,57 @@ int	find_map_start(char *str)
 	return (i);
 }
 
-int	check_map_str(char *str)
+int	check_empty_line_at_end(char *str)
 {
 	int	i;
-	int	j;
 
-	j = 0;
+	i = 0;
+	while (str[i])
+		i++;
+	if (str[i] == '\0' && str[i - 1] == '\n')
+	{
+		err("Error\nEmpty line at the end of the map\n");
+		free(str);
+		exit(1);
+	}
+	return (0);
+}
+
+int	check_empty_line_in_map(char *str)
+{
+	int	i;
+
 	i = find_map_start(str) - 1;
-	
 	while (i > 0 && str[++i])
 	{
 		if (str[i] == '\n' && str[i + 1] == '\n')
 			err("Error\nEmpty line in map\n");
 		if (str[i] == '\n' && str[i + 1] == '\n')
 		{
-			// err("je vais exit\n");
 			free(str);
 			exit(1);
 		}
-		// if (is_not_valid_char(str[i]))
-		// 	return (-1);
-		// if (ft_isalpha(str[i]))
-		// 	j++;
-		// if (j > 1)
-		// 	printf("Error\nTwo starting positions\n");
-		// if (j > 1)
-		// 	return (-1);
 	}
-	// if (j == 0 && i > 0)
-	// 	printf("Error\nNo starting position\n");
-	if (j == 0 || i < 0)
-		return (-1);
 	return (0);
 }
 
+int	check_no_map(char *str)
+{
+	int	i;
+
+	i = find_map_start(str) - 1;
+	while (i > 0 && str[++i])
+	{
+		if (str[i] == '\n' && str[i + 1] == '\n')
+			err("Error\nEmpty line in map\n");
+		if (str[i] == '\n' && str[i + 1] == '\n')
+		{
+			free(str);
+			exit(1);
+		}
+	}
+	return (0);
+}
 
 void	ft_put_in_tab(char *map, t_parser *parser)
 {
@@ -118,13 +130,8 @@ void	ft_put_in_tab(char *map, t_parser *parser)
 	str = ft_read_and_join(map);
 	if (str == NULL)
 		exit(1);
-
-	check_map_str(str);
-	// {
-	// 	// free(str);
-	// 	// return (NULL);
-	// }
-		
+	check_empty_line_in_map(str);
+	check_empty_line_at_end(str);
 	parser->tab = ft_split(str, '\n');
 	if (parser->tab == NULL)
 		return ;

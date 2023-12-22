@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:53:17 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/21 17:16:35 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/22 10:53:55 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,18 @@ int	validate_line(char *line)
 	if (count != 2)
 	{
 		free_tab(split_line);
-		return (0);
+		return (1);
 	}
 	free_tab(split_line);
-	return (1);
+	return (0);
 }
 
 int	set_texture(t_parser *parser, char *line,
 	char *cardinal_point, int *flag)
 {
-	if (ft_strncmp_cub3d(line, cardinal_point, 3) == 0)
+	if (ft_strncmp_cub3d(line, cardinal_point, 2) == 0)
 	{
-		if (!validate_line(line))
+		if (validate_line(line))
 		{
 			err("Error\nBad texture\n");
 			free_tab(parser->tab);
@@ -63,17 +63,28 @@ int	set_texture(t_parser *parser, char *line,
 	return (1);
 }
 
-int	verif_wall(t_parser *parser)
+char *trim_start(char *str)
 {
-	int	i;
+	while (*str == ' ' || *str == '\t')
+	{
+		str++;
+	}
+	return str;
+}
+
+int verif_textures_wall(t_parser *parser)
+{
+	int		i;
+	char	*trimmed_line;
 
 	i = 0;
 	while (i < parser->index_start_map)
 	{
-		if (!set_texture(parser, parser->tab[i], "NO ", &parser->flag_north)
-			|| !set_texture(parser, parser->tab[i], "SO ", &parser->flag_south)
-			|| !set_texture(parser, parser->tab[i], "WE ", &parser->flag_west)
-			|| !set_texture(parser, parser->tab[i], "EA ", &parser->flag_east))
+		trimmed_line = trim_start(parser->tab[i]);
+		if (!set_texture(parser, trimmed_line, "NO", &parser->flag_north)
+			|| !set_texture(parser, trimmed_line, "SO", &parser->flag_south)
+			|| !set_texture(parser, trimmed_line, "WE", &parser->flag_west)
+			|| !set_texture(parser, trimmed_line, "EA", &parser->flag_east))
 			return (0);
 		i++;
 	}
@@ -85,14 +96,44 @@ int	verif_wall(t_parser *parser)
 		free_tab(parser->tab);
 		return (err("Error\nBad texture\n"));
 	}
+}
+
+int verif_parameters(t_parser *parser)
+{
+	int		i;
+	char	**split_line;
+	char	*trimmed_line;
+
+	i = 0;
+	while (i < parser->index_start_map)
+	{
+		trimmed_line = trim_start(parser->tab[i]);
+		split_line = ft_split(trimmed_line, ' ');
+		if (split_line[0] && (ft_strcmp_cub3d(split_line[0], "NO") != 0 &&
+							  ft_strcmp_cub3d(split_line[0], "SO") != 0 &&
+							  ft_strcmp_cub3d(split_line[0], "WE") != 0 &&
+							  ft_strcmp_cub3d(split_line[0], "EA") != 0 &&
+							  ft_strcmp_cub3d(split_line[0], "F") != 0 &&
+							  ft_strcmp_cub3d(split_line[0], "C") != 0))
+		{
+			free_tab(split_line);
+			free_tab(parser->tab);
+			return (err("Error\nInvalid parameter\n"));
+		}
+		free_tab(split_line);
+		i++;
+	}
 	return (0);
 }
+
 
 int	master_verif_textures(char *map, t_parser *parser)
 {
 	ft_put_in_tab(map, parser);
 	parser->index_start_map = find_start_of_map(parser);
-	if (verif_wall(parser) != 0)
+	if (verif_parameters(parser) != 0)
+		return (1);
+	if (verif_textures_wall(parser) != 0)
 		return (1);
 	if (verif_floor_and_ceiling(parser) != 0)
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:57:39 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/21 17:16:35 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/22 10:57:10 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ int	check_error_numbers(t_parser *parser, char *str)
 int	set_color(t_parser *parser, char *line,
 	char *letter, int *flag)
 {
-	if (ft_strncmp_cub3d(line, letter, 2) == 0)
+	if (ft_strncmp_cub3d(line, letter, 1) == 0)
 	{
-		if (!validate_line(line))
+		if (validate_line(line))
 		{
 			err("Error\nBad color\n");
 			free_tab(parser->tab);
@@ -82,13 +82,14 @@ int	set_color(t_parser *parser, char *line,
 
 int	verif_floor_and_ceiling(t_parser *parser)
 {
-	int	i;
-
+	int		i;
+	char	*trimmed_line;
 	i = 0;
 	while (i < parser->index_start_map)
 	{
-		if (!set_color(parser, parser->tab[i], "F ", &parser->flag_floor)
-			|| !set_color(parser, parser->tab[i], "C ", &parser->flag_ceiling))
+		trimmed_line = trim_start(parser->tab[i]);
+		if (!set_color(parser, trimmed_line, "F", &parser->flag_floor)
+			|| !set_color(parser, trimmed_line, "C", &parser->flag_ceiling))
 			return (0);
 		i++;
 	}

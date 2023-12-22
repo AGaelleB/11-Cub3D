@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/21 17:16:35 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/22 10:56:46 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,10 @@ typedef struct s_parser
 
 /* poubelle */
 void print_tab(char **tab);
+
+
+char	*trim_start(char *str);
+
 
 /*********************************   MAIN   **********************************/
 
