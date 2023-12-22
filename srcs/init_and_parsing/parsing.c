@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:40:13 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/22 14:46:05 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/22 15:48:29 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	master_verif_maps(t_parser *parser)
 		return (err("Error\nEmpty line in the map\n"));
 	}
 	parms_map_size(parser);
-	if (verif_char(parser->map))
+	if (verif_char(parser->map) || verif_pos_player(parser))
 	{
 		free_tab(parser->tab);
 		free_tab(parser->map);

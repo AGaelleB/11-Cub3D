@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/22 15:22:29 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/22 15:46:36 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int		verif_floor_and_ceiling(t_parser *parser);
 
 int		verif_zero_close(t_parser *parser);
 int		verif_space_close(t_parser *parser);
+
+int		verif_pos_player(t_parser *parser);
 
 int		validate_line(char *line);
 int		verif_textures_wall(t_parser *parser);
