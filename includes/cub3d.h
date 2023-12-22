@@ -6,15 +6,15 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/22 14:51:31 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/22 15:22:29 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-// # include <X11/X.h>
-// # include <X11/keysym.h>
+# include <X11/X.h>
+# include <X11/keysym.h>
 # include <fcntl.h>
 # include <math.h>
 # include <stdio.h>
@@ -26,7 +26,7 @@
 # include "../includes/ft_printf.h"
 # include "../includes/get_next_line.h"
 # include "../includes/libft.h"
-// # include "../includes/minilibx-linux/mlx.h"
+# include "../includes/minilibx-linux/mlx.h"
 
 # define RESET "\033[0m"
 # define RED "\033[31m"
@@ -53,12 +53,13 @@ typedef struct s_parser
 
 /*********************************   MAIN   **********************************/
 
-
-
 /***************************   INIT_AND_PARSING   ***************************/
 
 int		convert_tab_in_map(t_parser *parser);
 void	parms_map_size(t_parser *parser);
+
+int		begin_at_texture(char *str);
+int		begin_digit(char *line);
 
 int		verif_floor_and_ceiling(t_parser *parser);
 

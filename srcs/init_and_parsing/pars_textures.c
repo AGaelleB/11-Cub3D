@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:53:17 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/22 11:08:04 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/22 15:21:25 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	check_error_textures(t_parser *parser, char *str)
 {
 	char	*dest;
 
+	if (begin_at_texture(str))
+		return (1);
 	dest = copy_from(str, 't');
 	if (access(dest, F_OK) != 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:57:39 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/22 11:08:33 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/22 15:21:34 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ int	set_color(t_parser *parser, char *line,
 {
 	if (ft_strncmp_cub3d(line, letter, 1) == 0)
 	{
+		if (begin_digit(line))
+			return (1);
 		if (validate_line(line))
 		{
 			err("Error\nBad color\n");
