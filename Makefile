@@ -6,7 +6,7 @@
 #    By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 10:44:39 by abonnefo          #+#    #+#              #
-#    Updated: 2023/12/22 15:40:57 by abonnefo         ###   ########.fr        #
+#    Updated: 2023/12/22 17:31:44 by abonnefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,11 @@ NAME = cub3D
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -g3
+
+FLAGMLX = -L ./includes/minilibx-linux/ -lmlx -lX11 -lXext -g3 -lm
+DIRMLX = ./includes/minilibx-linux/
+MLXFILE = libmlx.a
+MLXEXE = $(addprefix $(DIRMLX), $(MLXFILE)) $(FLAGMLX)
 
 OBJ_DIR_CUB3D = objs_cub3D
 
@@ -116,17 +121,22 @@ $(OBJ_DIR_CUB3D)/%.o $(OBJ_DIR_LIBFT)/%.o: %.c
 	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+$(NAME): $(OBJS) Makefile includes/minilibx-linux/mlx.h
+	@$(CC) $(CFLAGS) $(OBJS) $(MLXEXE) -o $(NAME)
 	@echo "\033[5;36m\n-gcc *.c libft done\033[0m"
 	@echo "\033[5;36m-gcc *.c get_next_line done\033[0m"
 	@echo "\033[5;36m-gcc *.c ft_printf done\033[0m"
-	@echo "\033[5;36m-gcc *.c Cub3D done\n\033[0m"
-	@echo "\033[1;32m[Make : 'Cub3D' is done]\033[0m"
+	@echo "\033[5;36m-gcc *.c minilibx done\033[0m"
+	@echo "\033[5;36m-gcc *.c cub3D done\n\033[0m"
+	@echo "\033[1;32m[Make : 'cub3D' is done]\033[0m"
 
-all : $(NAME)
+all : mlx $(NAME)
+
+mlx :
+	@$(MAKE) -sC $(DIRMLX) > /dev/null 2>&1
 
 clean :
+	@$(MAKE) clean -sC $(DIRMLX) > /dev/null 2>&1
 	@$(RM) $(OBJS)
 	@echo "\033[1;33m[.o] Object files removed\033[0m"
 
