@@ -6,7 +6,7 @@
 #    By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 10:44:39 by abonnefo          #+#    #+#              #
-#    Updated: 2023/12/22 17:31:44 by abonnefo         ###   ########.fr        #
+#    Updated: 2023/12/25 11:52:16 by abonnefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,14 @@ OBJ_DIR_LIBFT = libft/obj_libft
 SRCS_MAIN = srcs/main/main.c \
 
 SRCS_CUB3D = srcs/cub3d/cub3d.c \
+	srcs/cub3d/display_game.c \
+	srcs/cub3d/init_colors.c \
+	srcs/cub3d/init_img.c \
+	srcs/cub3d/init_textures.c \
+	srcs/cub3d/init_window.c \
+	srcs/cub3d/player_move.c \
+	srcs/cub3d/raycasting.c \
+	srcs/cub3d/rays.c \
 
 SRCS_INIT_PARSING = srcs/init_and_parsing/create_map.c \
 	srcs/init_and_parsing/pars_begin_params.c \

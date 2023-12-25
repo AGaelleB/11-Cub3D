@@ -6,11 +6,20 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:40:03 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/22 14:55:45 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/24 19:16:32 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+// t_data	init_data_game(void)
+// {
+// 	t_data	data;
+
+	
+// 	return (data);
+// }
+
 
 t_parser	init_data_parsing(void)
 {
@@ -37,7 +46,7 @@ int	main(int ac, char **av)
 	parser = init_data_parsing();
 	if (master_parsing(ac, av, &parser) != 0)
 		return (1);
-	// exec_game();
+	exec_game(&parser);
 	free_tab(parser.tab);
 	free_tab(parser.map);
 	return (0);
