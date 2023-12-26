@@ -6,7 +6,7 @@
 #    By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 10:44:39 by abonnefo          #+#    #+#              #
-#    Updated: 2023/12/26 11:14:22 by abonnefo         ###   ########.fr        #
+#    Updated: 2023/12/26 13:06:33 by abonnefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,13 +29,16 @@ SRCS_MAIN = srcs/main/main.c \
 
 SRCS_EXEC_CUB3D = srcs/exec_cub3D/cub3d.c \
 	srcs/exec_cub3D/display_game.c \
+	srcs/exec_cub3D/display_pixels.c \
 	srcs/exec_cub3D/player_move.c \
+	srcs/exec_cub3D/put_pixels.c \
 	srcs/exec_cub3D/raycasting.c \
 	srcs/exec_cub3D/rays.c \
 
 SRCS_INIT = srcs/init/init_colors.c \
-	srcs/init/init_img.c \
+	srcs/init/init_pos_directions.c \
 	srcs/init/init_pos_player.c \
+	srcs/init/init_rays_directions.c \
 	srcs/init/init_textures_adress.c \
 	srcs/init/init_textures_filename.c \
 	srcs/init/init_window.c \

@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 11:06:04 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/26 13:05:31 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@
 # define WIDTH 640 // x
 # define HEIGHT 480 // y
 # define KEY_ESCAPE 65307
+# define INFINITY_VALUE 1e30 //"1e30" est une façon d'écrire 10^30
+# define MAX_COLOR_VALUE 0xFF  // Equivalent to 255 in decimal
 
 
 typedef struct s_colors
@@ -48,31 +50,52 @@ typedef struct s_colors
 	int			blue;
 }	t_colors;
 
-// typedef struct s_textures
-// {
-// 	int			height;
-// 	int			width;
-// 	int			textdir;
-// 	double		wallx;
-// 	int			texx;
-// 	int			texy;
-// 	double		step;
-// 	double		texpos;
-// }				t_textures;
+typedef struct s_game
+{
+	double		pos_x;			// Position de départ x et y
+	double		pos_y;			// Position de départ x et y
+	double		dir_x;			// vecteur de direction initial
+	double		dir_y;			// vecteur de direction initial
+	double		plan_x;			//la version Raycaster 2D du plan de la caméra
+	double		plan_y;			//la version Raycaster 2D du plan de la caméra
+	double		camera_x;		//coordonnée x dans l'espace de la caméra
+	double		ray_dir_x;
+	double		ray_dir_y;
+	double		delta_dist_x;	//the distance the ray has to travel to go from 1 x-side to the next x-side
+	double		delta_dist_y;	//the distance the ray has to travel to go from 1 x-side to the next x-side
+	double		side_dist_x;	//the distance the ray has to travel from its start position to the first x-side and the first y-side
+	double		side_dist_y;	//the distance the ray has to travel from its start position to the first x-side and the first y-side
+	int			map_x;
+	int			map_y;
+	int			step_x;
+	int			step_y;
+	int			hit;			//was there a wall hit?
+	int			side;			//was a NS or a EW wall hit?
+
+
+	double		dist_to_wall;
+	int			line_height;
+	int			draw_start;
+	int			draw_end;
+	double		wall_x;
+	int			texture_x;
+	int			texture_y;
+	double		texture_pos;
+	double		walk;
+
+
+}	t_game;
 
 typedef struct s_img
 {
 	void		*mlx;
 	void		*window;
-	// void		*img_blank; // créer une nouvelle image vierge avec mlx_new_image
 	char		*filename;
 	char		*data_addr;
 	void		*img_ptr; // stocker le pointeur vers une image chargée
 	int			bits_per_pixels;
 	int			size_line;
 	int			endian;
-
-	
 }	t_img;
 
 typedef struct s_parser
@@ -94,28 +117,24 @@ typedef struct s_data
 {
 	char		**valid_map;
 	char		**valid_param;
-	// char		*filename_no; mis dans img
 	int			pos_player_x;
 	int			pos_player_y;
 	int			line_height;
 	t_parser	*parser;
-	// t_textures	*textures;
-	t_img		*img_blank;
+	t_img		*img_blank; // créer une nouvelle image vierge avec mlx_new_image
 	t_img		*texture_NO;
 	t_img		*texture_SO;
 	t_img		*texture_WE;
 	t_img		*texture_EA;
 	t_colors	colors_ceiling;
 	t_colors	colors_floor;
+	t_game		*game;
 }	t_data;
-
 
 
 /* POUBELLE TEMP */
 void	print_stuff_before_init(t_data	*data);
 void	print_stuff_after_init(t_data	*data);
-
-
 
 /*********************************   MAIN   **********************************/
 
@@ -123,7 +142,13 @@ void	print_stuff_after_init(t_data	*data);
 /*******************************   EXEC_CUB3D   ******************************/
 
 void	exec_game(t_parser *parser);
-int	display_game(t_data *data);
+int		display_game(t_data *data);
+void	throw_rays(t_data *data);
+void	calcul_wall_drawing_params(t_data *data);
+void	draw_vertical_column(t_data *data, int x, int y, int line_height);
+void	put_pixel(t_data *data, int x, int y, int C_or_F);
+int		get_rgb(t_data *data, int C_or_F);
+int		get_color(t_data *data, t_img *texture);
 
 
 /*********************************   INIT   *********************************/
@@ -136,6 +161,8 @@ int		close_window(t_data *data);
 int		init_pos_player(t_data *data);
 void	init_textures_adress(t_data *data);
 void	init_data_game(t_data *data, t_parser *parser);
+void	init_ray(t_data	*data, int x);
+void	init_pos_directions(t_data *data);
 
 
 /********************************   PARSING   ********************************/
@@ -180,5 +207,6 @@ int		err(char *str);
 char	*copy_from(char *str, char c_start);
 int		find_start_of_map(t_parser *parser);
 int		is_all_space(char *input);
+float	ft_fabs(float i);
 
 #endif
