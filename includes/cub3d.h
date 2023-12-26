@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 13:05:31 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/26 16:58:57 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@
 # define MAGENTA "\033[35m"
 # define CYAN "\033[36m"
 
-# define WIDTH 640 // x
-# define HEIGHT 480 // y
+# define WIDTH 1280 // x
+# define HEIGHT 960 // y
 # define KEY_ESCAPE 65307
 # define INFINITY_VALUE 1e30 //"1e30" est une façon d'écrire 10^30
 # define MAX_COLOR_VALUE 0xFF  // Equivalent to 255 in decimal
@@ -150,6 +150,9 @@ void	put_pixel(t_data *data, int x, int y, int C_or_F);
 int		get_rgb(t_data *data, int C_or_F);
 int		get_color(t_data *data, t_img *texture);
 
+void	init_side_dist_x(t_data	*data);
+void	init_side_dist_y(t_data	*data);
+void	init_ray_direction(t_data	*data, int x);
 
 /*********************************   INIT   *********************************/
 

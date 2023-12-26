@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 10:57:41 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 10:57:47 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/26 17:03:45 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,22 @@ int	init_pos_player(t_data *data)
 	int	x;
 	int	y;
 
-	y = 0;
-	while (data->valid_map[y])
+	x = 0;
+	while (data->valid_map[x])
 	{
-		x = 0;
-		while (data->valid_map[y][x])
+		y = 0;
+		while (data->valid_map[x][y])
 		{
-			if (data->valid_map[y][x] == 'N' || data->valid_map[y][x] == 'S'
-				|| data->valid_map[y][x] == 'E' || data->valid_map[y][x] == 'W')
+			if (data->valid_map[x][y] == 'N' || data->valid_map[x][y] == 'S'
+				|| data->valid_map[x][y] == 'E' || data->valid_map[x][y] == 'W')
 			{
 				data->pos_player_x = x;
 				data->pos_player_y = y;
 				return (0);
 			}
-			x++;
+			y++;
 		}
-		y++;
+		x++;
 	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 11:51:26 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 13:10:40 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/26 16:24:22 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	put_pixel(t_data *data, int x, int y, int C_or_F)
 	dest = data->img_blank->data_addr + (y * data->img_blank->size_line) + x
 		* (data->img_blank->bits_per_pixels
 			/ 8);
-	*(int *)dest = C_or_F;
+	*(int *)dest = C_or_F; // (put_pixels.c:24)
 }
 
 int	get_rgb(t_data *data, int C_or_F)

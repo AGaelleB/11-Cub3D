@@ -6,13 +6,13 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:57:37 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 12:20:54 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/26 17:02:17 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	throw_rays(t_data *data)
+void	throw_rays(t_data *data) //////////////
 {
 	data->game->hit = 0;
 	while (data->game->hit == 0)
@@ -31,6 +31,7 @@ void	throw_rays(t_data *data)
 		}
 		if (data->valid_map[data->game->map_x][data->game->map_y] == '1')
 			data->game->hit = 1;
+		// printf("Ray Position: [%d, %d], Hit: %d\n", data->game->map_x, data->game->map_y, data->game->hit);
 	}
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 11:43:17 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 13:02:37 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/26 16:45:27 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 
 void	init_ray_direction(t_data	*data, int x)
 {
-	// data->game->pos_x = data->pos_player_x; // gaga
-	// data->game->pos_y = data->pos_player_y; // gaga
 	data->game->camera_x = 2 * x / (double)WIDTH - 1;
 	data->game->ray_dir_x = data->game->dir_x
 		+ data->game->plan_x * data->game->camera_x;
 	data->game->ray_dir_y = data->game->dir_y
 		+ data->game->plan_y * data->game->camera_x;
-	if (!data->game->ray_dir_x)
+	if (data->game->ray_dir_x != 0)
 		data->game->delta_dist_x = ft_fabs(1 / data->game->ray_dir_x);
 	else
 		data->game->delta_dist_x = INFINITY_VALUE;
-	if (!data->game->ray_dir_y)
+	if (data->game->ray_dir_y != 0)
 		data->game->delta_dist_y = ft_fabs(1 / data->game->ray_dir_y);
 	else
 		data->game->delta_dist_y = INFINITY_VALUE;

@@ -6,58 +6,26 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 10:54:32 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 13:14:59 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/26 16:42:35 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-
-// void	init_malloc_event(t_data *data)
-// {
-// 	cub->go_w = malloc(sizeof(t_bool));
-// 	if (!cub->go_w)
-// 		err("Error alloc go_w");
-// 	cub->go_w->key = 119;
-// 	cub->go_w->ok = FALSE;
-// 	cub->go_s = malloc(sizeof(t_bool));
-// 	if (!cub->go_s)
-// 		err("Error alloc go_s");
-// 	cub->go_s->key = 115;
-// 	cub->go_s->ok = FALSE;
-// 	cub->go_a = malloc(sizeof(t_bool));
-// 	if (!cub->go_a)
-// 		err("Error alloc go_a");
-// 	cub->go_a->key = 97;
-// 	cub->go_a->ok = FALSE;
-// 	cub->go_d = malloc(sizeof(t_bool));
-// 	if (!cub->go_d)
-// 		err("Error alloc go_d");
-// 	cub->go_d->key = 100;
-// 	cub->go_d->ok = FALSE;
-
-// 	cub->cam_left = malloc(sizeof(t_bool));
-// 	if (!cub->cam_left)
-// 		err("Error alloc cam_left");
-// 	cub->cam_left->key = 65363;
-// 	cub->cam_left->ok = FALSE;
-// 	cub->cam_right = malloc(sizeof(t_bool));
-// 	if (!cub->cam_right)
-// 		err("Error alloc cam_right");
-// 	cub->cam_right->key = 65361;
-// 	cub->cam_right->ok = FALSE;
-// 	cub->cam_mouse_right = 0;
-// 	cub->cam_mouse_left = 0;
-// }
-
-
 void	init_data_game(t_data *data, t_parser *parser)
 {
+
+	data->game = malloc(sizeof(t_game));
+	if (!data->game)
+		return;
+	ft_memset(data->game, 0, sizeof(t_game)); // a resolu tous mes problems d init !!!
+
 	data->valid_map = parser->map;
 	data->valid_param = parser->tab;
-	data->texture_NO = NULL;
 	init_colors(data);
 	init_pos_player(data);
+	data->game->pos_x = data->pos_player_x + 0.5;
+	data->game->pos_y = data->pos_player_y + 0.5; // ?? 
 	init_textures_filename(data);
 	data->game->side = 0;
 	init_pos_directions(data);

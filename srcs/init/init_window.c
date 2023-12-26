@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:55:31 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/25 18:03:29 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/26 16:27:46 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ int	init_windows(t_data *data)
 	pensez a faire mlx_destroy_image a la fin */
 	data->img_blank->img_ptr = mlx_new_image(data->img_blank->mlx,
 			WIDTH, HEIGHT);
+	data->img_blank->data_addr = mlx_get_data_addr(data->img_blank->img_ptr,
+		&(data->img_blank->bits_per_pixels),
+		&(data->img_blank->size_line), &(data->img_blank->endian));
 	return (0);
 }
 
