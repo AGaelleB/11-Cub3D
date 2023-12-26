@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/25 12:33:47 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/26 10:58:33 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ typedef struct s_img
 {
 	void		*mlx;
 	void		*window;
-	void		*img_blank;
+	// void		*img_blank; // créer une nouvelle image vierge avec mlx_new_image
 	char		*filename;
 	char		*data_addr;
-	void		*img_ptr;
+	void		*img_ptr; // stocker le pointeur vers une image chargée
 	int			bits_per_pixels;
 	int			size_line;
 	int			endian;
@@ -94,11 +94,13 @@ typedef struct s_data
 {
 	char		**valid_map;
 	char		**valid_param;
+	// char		*filename_no; mis dans img
 	int			pos_player_x;
 	int			pos_player_y;
+	int			line_height;
 	t_parser	*parser;
 	// t_textures	*textures;
-	t_img		*img;
+	t_img		*img_blank;
 	t_img		*texture_NO;
 	t_img		*texture_SO;
 	t_img		*texture_WE;
@@ -107,26 +109,36 @@ typedef struct s_data
 	t_colors	colors_floor;
 }	t_data;
 
+
+
+/* POUBELLE TEMP */
+void	print_stuff_before_init(t_data	*data);
+void	print_stuff_after_init(t_data	*data);
+
+
+
 /*********************************   MAIN   **********************************/
 
-// t_data	init_data_game(void);
 
-
-/*********************************   CUB3D   *********************************/
+/*******************************   EXEC_CUB3D   ******************************/
 
 void	exec_game(t_parser *parser);
+int	display_game(t_data *data);
 
 
-int	init_colors(t_data *data);
-int	init_filename_textures(t_data *data);
-int	init_windows(t_data *data);
-int handle_key_esc(int key, t_data *data);
-int close_window(t_data *data);
-int	init_pos_player(t_data *data);
+/*********************************   INIT   *********************************/
+
+int		init_colors(t_data *data);
+int		init_textures_filename(t_data *data);
+int		init_windows(t_data *data);
+int		handle_key_esc(int key, t_data *data);
+int		close_window(t_data *data);
+int		init_pos_player(t_data *data);
+void	init_textures_adress(t_data *data);
+void	init_data_game(t_data *data, t_parser *parser);
 
 
-
-/***************************   INIT_AND_PARSING   ***************************/
+/********************************   PARSING   ********************************/
 
 int		convert_tab_in_map(t_parser *parser);
 void	parms_map_size(t_parser *parser);

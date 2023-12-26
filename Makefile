@@ -6,7 +6,7 @@
 #    By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 10:44:39 by abonnefo          #+#    #+#              #
-#    Updated: 2023/12/25 11:52:16 by abonnefo         ###   ########.fr        #
+#    Updated: 2023/12/26 10:58:17 by abonnefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,24 +27,28 @@ OBJ_DIR_LIBFT = libft/obj_libft
 
 SRCS_MAIN = srcs/main/main.c \
 
-SRCS_CUB3D = srcs/cub3d/cub3d.c \
-	srcs/cub3d/display_game.c \
-	srcs/cub3d/init_colors.c \
-	srcs/cub3d/init_img.c \
-	srcs/cub3d/init_textures.c \
-	srcs/cub3d/init_window.c \
-	srcs/cub3d/player_move.c \
-	srcs/cub3d/raycasting.c \
-	srcs/cub3d/rays.c \
+SRCS_EXEC_CUB3D = srcs/exec_cub3D/cub3d.c \
+	srcs/exec_cub3D/display_game.c \
+	srcs/exec_cub3D/player_move.c \
+	srcs/exec_cub3D/raycasting.c \
+	srcs/exec_cub3D/rays.c \
 
-SRCS_INIT_PARSING = srcs/init_and_parsing/create_map.c \
-	srcs/init_and_parsing/pars_begin_params.c \
-	srcs/init_and_parsing/pars_floor_and_ceiling.c \
-	srcs/init_and_parsing/parsing.c \
-	srcs/init_and_parsing/pars_textures.c \
-	srcs/init_and_parsing/pars_maps.c \
-	srcs/init_and_parsing/pars_start_player.c \
-	srcs/init_and_parsing/put_in_tab.c \
+SRCS_INIT = srcs/init/init_colors.c \
+	srcs/init/init_img.c \
+	srcs/init/init_pos_player.c \
+	srcs/init/init_textures_adress.c \
+	srcs/init/init_textures_filename.c \
+	srcs/init/init_window.c \
+	srcs/init/master_init.c \
+
+SRCS_PARSING = srcs/parsing/create_map.c \
+	srcs/parsing/pars_begin_params.c \
+	srcs/parsing/pars_floor_and_ceiling.c \
+	srcs/parsing/parsing.c \
+	srcs/parsing/pars_textures.c \
+	srcs/parsing/pars_maps.c \
+	srcs/parsing/pars_start_player.c \
+	srcs/parsing/put_in_tab.c \
 
 SRCS_UTILS = srcs/utils/free_struct.c \
 	srcs/utils/libft_modify.c \
@@ -113,8 +117,9 @@ SRCS_PRINTF = libft/ft_printf/ft_printf.c \
 	libft/ft_printf/ft_print_x.c \
 
 OBJS = $(SRCS_MAIN:%.c=$(OBJ_DIR_CUB3D)/%.o) \
-		$(SRCS_CUB3D:%.c=$(OBJ_DIR_CUB3D)/%.o) \
-		$(SRCS_INIT_PARSING:%.c=$(OBJ_DIR_CUB3D)/%.o) \
+		$(SRCS_EXEC_CUB3D:%.c=$(OBJ_DIR_CUB3D)/%.o) \
+		$(SRCS_INIT:%.c=$(OBJ_DIR_CUB3D)/%.o) \
+		$(SRCS_PARSING:%.c=$(OBJ_DIR_CUB3D)/%.o) \
 		$(SRCS_UTILS:%.c=$(OBJ_DIR_CUB3D)/%.o) \
 		$(SRCS_LIBFT:%.c=$(OBJ_DIR_LIBFT)/%.o) \
 		$(SRCS_LIBFT_BONUS:%.c=$(OBJ_DIR_LIBFT)/%.o) \

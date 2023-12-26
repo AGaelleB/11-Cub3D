@@ -6,20 +6,11 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:40:03 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/24 19:16:32 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/26 10:56:40 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
-// t_data	init_data_game(void)
-// {
-// 	t_data	data;
-
-	
-// 	return (data);
-// }
-
 
 t_parser	init_data_parsing(void)
 {
