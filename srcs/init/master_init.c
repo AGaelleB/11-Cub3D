@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 10:54:32 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 16:42:35 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/26 17:25:36 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 
 void	init_data_game(t_data *data, t_parser *parser)
 {
-
 	data->game = malloc(sizeof(t_game));
 	if (!data->game)
-		return;
+		return ;
 	ft_memset(data->game, 0, sizeof(t_game)); // a resolu tous mes problems d init !!!
-
 	data->valid_map = parser->map;
 	data->valid_param = parser->tab;
 	init_colors(data);
 	init_pos_player(data);
 	data->game->pos_x = data->pos_player_x + 0.5;
-	data->game->pos_y = data->pos_player_y + 0.5; // ?? 
+	data->game->pos_y = data->pos_player_y + 0.5; // ??
 	init_textures_filename(data);
 	data->game->side = 0;
 	init_pos_directions(data);
@@ -44,7 +42,6 @@ void	print_stuff_before_init(t_data	*data)
 	printf("filename EA = %s\n\n", data->texture_EA->filename);
 	printf("pos_player_x = %d\n", data->pos_player_x);
 	printf("pos_player_y = %d\n\n", data->pos_player_y);
-	
 }
 
 void	print_stuff_after_init(t_data	*data)
@@ -57,5 +54,4 @@ void	print_stuff_after_init(t_data	*data)
 	printf("data_addr south = %p\n", data->texture_SO->data_addr);
 	printf("data_addr west = %p\n", data->texture_WE->data_addr);
 	printf("data_addr east = %p\n\n", data->texture_EA->data_addr);
-	
 }

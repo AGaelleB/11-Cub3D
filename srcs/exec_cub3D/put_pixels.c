@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 11:51:26 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 16:24:22 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/26 17:23:39 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	put_pixel(t_data *data, int x, int y, int C_or_F)
 	dest = data->img_blank->data_addr + (y * data->img_blank->size_line) + x
 		* (data->img_blank->bits_per_pixels
 			/ 8);
-	*(int *)dest = C_or_F; // (put_pixels.c:24)
+	*(int *)dest = C_or_F;
 }
 
 int	get_rgb(t_data *data, int C_or_F)
@@ -48,7 +48,7 @@ int	get_color(t_data *data, t_img *texture)
 		|| data->game->texture_x > WIDTH - 1)
 		return (0);
 	dst = texture->data_addr + (data->game->texture_y
-		* texture->size_line + data->game->texture_x
-		* (texture->bits_per_pixels / 8));
+			* texture->size_line + data->game->texture_x
+			* (texture->bits_per_pixels / 8));
 	return (*(int *)dst);
 }

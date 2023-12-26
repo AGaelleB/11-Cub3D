@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 16:58:57 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/26 17:17:50 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@
 # define INFINITY_VALUE 1e30 //"1e30" est une façon d'écrire 10^30
 # define MAX_COLOR_VALUE 0xFF  // Equivalent to 255 in decimal
 
-
 typedef struct s_colors
 {
 	int			red;
@@ -71,8 +70,6 @@ typedef struct s_game
 	int			step_y;
 	int			hit;			//was there a wall hit?
 	int			side;			//was a NS or a EW wall hit?
-
-
 	double		dist_to_wall;
 	int			line_height;
 	int			draw_start;
@@ -82,8 +79,6 @@ typedef struct s_game
 	int			texture_y;
 	double		texture_pos;
 	double		walk;
-
-
 }	t_game;
 
 typedef struct s_img

@@ -6,17 +6,16 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 12:25:32 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 16:53:29 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/26 17:25:04 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-
-void	update_texture(t_data *data, int line_height) /////////////
+void	update_texture(t_data *data, int line_height)
 {
 	if (data->game->side == 0)
-		data->game->wall_x = data->game->pos_y + data->game->dist_to_wall\
+		data->game->wall_x = data->game->pos_y + data->game->dist_to_wall
 			* data->game->ray_dir_y;
 	else
 		data->game->wall_x = data->game->pos_x + data->game->dist_to_wall
@@ -30,18 +29,16 @@ void	update_texture(t_data *data, int line_height) /////////////
 	data->game->walk = 1.0 * 64 / line_height;
 	data->game->texture_pos = \
 	(data->game->draw_start - HEIGHT / 2 + line_height / 2) * data->game->walk;
-
-	// printf("Texture Coords: [%d, %d]\n", data->game->texture_x, data->game->texture_y);
 }
 
-void	calcul_wall_drawing_params(t_data *data) ///////////
+void	calcul_wall_drawing_params(t_data *data)
 {
 	if (data->game->side == 0)
 		data->game->dist_to_wall = (data->game->side_dist_x
-			- data->game->delta_dist_x);
+				- data->game->delta_dist_x);
 	else
 		data->game->dist_to_wall = (data->game->side_dist_y
-			- data->game->delta_dist_y);
+				- data->game->delta_dist_y);
 	data->game->line_height = (int)(HEIGHT / data->game->dist_to_wall);
 	data->game->draw_start = -data->game->line_height / 2 + HEIGHT / 2;
 	if (data->game->draw_start < 0)
@@ -49,8 +46,6 @@ void	calcul_wall_drawing_params(t_data *data) ///////////
 	data->game->draw_end = data->game->line_height / 2 + HEIGHT / 2;
 	if (data->game->draw_end >= HEIGHT || data->game->draw_end < 0)
 		data->game->draw_end = HEIGHT - 1;
-
-	// printf("Wall Dist: %f, Line Height: %d, Draw Start: %d, Draw End: %d\n", data->game->dist_to_wall, data->game->line_height, data->game->draw_start, data->game->draw_end);
 }
 
 void	draw_vertical_column(t_data *data, int x, int y, int line_height)
@@ -80,5 +75,4 @@ void	draw_vertical_column(t_data *data, int x, int y, int line_height)
 		put_pixel(data, x, y, get_rgb(data, 0));
 		y++;
 	}
-	// printf("Drawing Wall Column at X: %d, Y Start: %d, Y End: %d\n", x, data->game->draw_start, data->game->draw_end);
 }

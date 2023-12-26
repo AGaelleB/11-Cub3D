@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 11:43:17 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 16:45:27 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/26 17:26:49 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ void	init_side_dist_x(t_data	*data)
 	{
 		data->game->step_x = -1;
 		data->game->side_dist_x = (data->game->pos_x
-			- data->game->map_x) * data->game->delta_dist_x;
+				- data->game->map_x) * data->game->delta_dist_x;
 	}
 	else
 	{
 		data->game->step_x = 1;
 		data->game->side_dist_x = (data->game->map_x + 1
-			- data->game->pos_x) * data->game->delta_dist_x;
+				- data->game->pos_x) * data->game->delta_dist_x;
 	}
 }
 
@@ -53,13 +53,13 @@ void	init_side_dist_y(t_data	*data)
 	{
 		data->game->step_y = -1;
 		data->game->side_dist_y = (data->game->pos_y
-			- data->game->map_y) * data->game->delta_dist_y;
+				- data->game->map_y) * data->game->delta_dist_y;
 	}
 	else
 	{
 		data->game->step_y = 1;
 		data->game->side_dist_y = (data->game->map_y + 1
-		- data->game->pos_y) * data->game->delta_dist_y;
+				- data->game->pos_y) * data->game->delta_dist_y;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 11:43:17 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 17:02:27 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/26 17:26:10 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	init_pos_dig(t_data *data)
 {
-	// printf("%sdata->valid_map[%f][%f] = %s\n", MAGENTA, data->game->pos_x, data->game->pos_y, RESET);
 	if (data->valid_map[(int)data->game->pos_x][(int)data->game->pos_y] == 'W')
 	{
 		data->game->dir_x = 0;
@@ -22,7 +21,7 @@ void	init_pos_dig(t_data *data)
 		data->game->plan_x = -0.66;
 		data->game->plan_y = 0;
 	}
-	else if (data->valid_map[(int)data->game->pos_x][(int)data->game->pos_y] 
+	else if (data->valid_map[(int)data->game->pos_x][(int)data->game->pos_y]
 		== 'E')
 	{
 		data->game->dir_x = 0;
