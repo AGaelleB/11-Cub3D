@@ -6,7 +6,7 @@
 #    By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 10:44:39 by abonnefo          #+#    #+#              #
-#    Updated: 2023/12/26 10:58:17 by abonnefo         ###   ########.fr        #
+#    Updated: 2023/12/26 11:14:22 by abonnefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,17 +41,17 @@ SRCS_INIT = srcs/init/init_colors.c \
 	srcs/init/init_window.c \
 	srcs/init/master_init.c \
 
-SRCS_PARSING = srcs/parsing/create_map.c \
+SRCS_PARSING = srcs/parsing/master_pars.c \
 	srcs/parsing/pars_begin_params.c \
 	srcs/parsing/pars_floor_and_ceiling.c \
-	srcs/parsing/parsing.c \
 	srcs/parsing/pars_textures.c \
 	srcs/parsing/pars_maps.c \
 	srcs/parsing/pars_start_player.c \
-	srcs/parsing/put_in_tab.c \
 
-SRCS_UTILS = srcs/utils/free_struct.c \
+SRCS_UTILS = srcs/utils/create_map.c \
+	srcs/utils/free_struct.c \
 	srcs/utils/libft_modify.c \
+	srcs/utils/put_in_tab.c \
 	srcs/utils/read_and_join.c \
 	srcs/utils/utils_parsing.c \
 	srcs/utils/utils.c \

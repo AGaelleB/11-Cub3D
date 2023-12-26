@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 10:58:33 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/26 11:06:04 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@
 # define MAGENTA "\033[35m"
 # define CYAN "\033[36m"
 
-# define WIDTH 640
-# define HEIGHT 480
+# define WIDTH 640 // x
+# define HEIGHT 480 // y
 # define KEY_ESCAPE 65307
 
 
