@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:55:31 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 22:04:21 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:08:43 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@ void	init_key_press(t_data *data)
 	data->keys.a = 0;
 	data->keys.s = 0;
 	data->keys.d = 0;
-	// printf("init_key_press : KEY_W = %d\n", data->keys.w);
-	// printf("init_key_press : KEY_A = %d\n", data->keys.a);
-	// printf("init_key_press : KEY_S = %d\n", data->keys.s);
-	// printf("init_key_press : KEY_D = %d\n", data->keys.d);
+	data->keys.rot_left = 0;
+	data->keys.rot_right = 0;
 }
 
 int	init_windows(t_data *data)
@@ -29,6 +27,7 @@ int	init_windows(t_data *data)
 	data->img_blank = malloc(sizeof(t_img));
 	if (!data->img_blank)
 		return (1);
+	ft_memset(data->img_blank, 0, sizeof(t_img)); // a resolu pleins de problems d init !!!
 	data->img_blank->mlx = mlx_init();
 	if (!data->img_blank->mlx)
 		err("Error\nInit mlx failed\n");

@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/27 12:20:49 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:18:08 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,23 @@
 # define KEY_A 97
 # define KEY_S 115
 # define KEY_D 100
+# define KEY_LEFT 65361
+# define KEY_RIGHT 65363
 
-# define SPEED 0.025
+# define SPEED_MOVE 0.015
+# define SPEED_ROT 0.01
 
 # define INFINITY_VALUE 1e30 //"1e30" est une façon d'écrire 10^30
 # define MAX_COLOR_VALUE 0xFF  // Equivalent to 255 in decimal
 
 typedef struct s_keys
 {
-	bool	w;
-	bool	a;
-	bool	s;
-	bool	d;
+	int	w;
+	int	a;
+	int	s;
+	int	d;
+	int	rot_left;
+	int	rot_right;
 }	t_keys;
 
 typedef struct s_colors
@@ -166,7 +171,7 @@ int		get_rgb(t_data *data, int C_or_F);
 int		get_color(t_data *data, t_img *texture);
 int		key_press(int key, t_data *data);
 int		key_release(int key, t_data *data);
-void	update_movement(t_data *data);
+void	movement_player(t_data *data);
 
 
 /*********************************   INIT   *********************************/
@@ -179,7 +184,6 @@ void	init_textures_adress(t_data *data);
 void	init_data_game(t_data *data, t_parser *parser);
 void	init_ray(t_data	*data, int x);
 void	init_pos_directions(t_data *data);
-int		close_window(t_data *data);
 void	init_key_press(t_data *data);
 
 

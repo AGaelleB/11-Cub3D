@@ -6,11 +6,17 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:39:45 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/27 12:31:22 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:18:01 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+int	close_window(t_data *data)
+{
+	mlx_destroy_window(data->img_blank->mlx, data->img_blank->window);
+	exit (0);
+}
 
 void	exec_game(t_parser *parser)
 {
