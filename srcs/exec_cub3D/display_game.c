@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:57:41 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 17:24:13 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/27 12:30:55 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	display_game(t_data *data)
 	int	x;
 
 	x = 0;
+	// ajouter les mouvements clavier et souris
+	update_movement(data);
 	while (x < WIDTH)
 	{
 		init_ray(data, x);
@@ -27,6 +29,11 @@ int	display_game(t_data *data)
 	}
 	mlx_put_image_to_window(data->img_blank->mlx, data->img_blank->window,
 		data->img_blank->img_ptr, 0, 0);
-	// ajouter les mouvements clavier et souris
 	return (0);
+}
+
+int	close_window(t_data *data)
+{
+	mlx_destroy_window(data->img_blank->mlx, data->img_blank->window);
+	exit (0);
 }

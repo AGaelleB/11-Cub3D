@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:40:03 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 10:56:40 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/27 12:27:30 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,3 +42,15 @@ int	main(int ac, char **av)
 	free_tab(parser.map);
 	return (0);
 }
+
+/*
+	sefault si je fonce direct dans un mur je peux plus bouger 
+
+	==296468== Process terminating with default action of signal 2 (SIGINT)
+	==296468==    at 0x10F0A0: draw_vertical_column (display_pixels.c:56)
+	==296468==    by 0x10EC4D: display_game (display_game.c:27)
+	==296468==    by 0x1167CC: mlx_loop (in /home/gaelle/Documents/Stud-42/11-Cub3D/cub3D)
+	==296468==    by 0x10EBC2: exec_game (cub3d.c:32)
+	==296468==    by 0x10EA87: main (main.c:40)
+
+ */

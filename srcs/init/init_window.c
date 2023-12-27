@@ -6,11 +6,23 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:55:31 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 17:27:09 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/26 22:04:21 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+void	init_key_press(t_data *data)
+{
+	data->keys.w = 0;
+	data->keys.a = 0;
+	data->keys.s = 0;
+	data->keys.d = 0;
+	// printf("init_key_press : KEY_W = %d\n", data->keys.w);
+	// printf("init_key_press : KEY_A = %d\n", data->keys.a);
+	// printf("init_key_press : KEY_S = %d\n", data->keys.s);
+	// printf("init_key_press : KEY_D = %d\n", data->keys.d);
+}
 
 int	init_windows(t_data *data)
 {
@@ -34,18 +46,3 @@ int	init_windows(t_data *data)
 	return (0);
 }
 
-int	handle_key_esc(int key, t_data *data)
-{
-	if (key == KEY_ESCAPE)
-	{
-		mlx_destroy_window(data->img_blank->mlx, data->img_blank->window);
-		exit (0);
-	}
-	return (0);
-}
-
-int	close_window(t_data *data)
-{
-	mlx_destroy_window(data->img_blank->mlx, data->img_blank->window);
-	exit (0);
-}

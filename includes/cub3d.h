@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 17:17:50 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/27 12:20:49 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,30 @@
 # define MAGENTA "\033[35m"
 # define CYAN "\033[36m"
 
-# define WIDTH 1280 // x
-# define HEIGHT 960 // y
+// # define WIDTH 1280 // x
+// # define HEIGHT 960 // y
+
+# define WIDTH 640 // x
+# define HEIGHT 480 // y
+
 # define KEY_ESCAPE 65307
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
+
+# define SPEED 0.025
+
 # define INFINITY_VALUE 1e30 //"1e30" est une façon d'écrire 10^30
 # define MAX_COLOR_VALUE 0xFF  // Equivalent to 255 in decimal
+
+typedef struct s_keys
+{
+	bool	w;
+	bool	a;
+	bool	s;
+	bool	d;
+}	t_keys;
 
 typedef struct s_colors
 {
@@ -124,6 +143,7 @@ typedef struct s_data
 	t_colors	colors_ceiling;
 	t_colors	colors_floor;
 	t_game		*game;
+	t_keys		keys;
 }	t_data;
 
 
@@ -144,23 +164,23 @@ void	draw_vertical_column(t_data *data, int x, int y, int line_height);
 void	put_pixel(t_data *data, int x, int y, int C_or_F);
 int		get_rgb(t_data *data, int C_or_F);
 int		get_color(t_data *data, t_img *texture);
+int		key_press(int key, t_data *data);
+int		key_release(int key, t_data *data);
+void	update_movement(t_data *data);
 
-void	init_side_dist_x(t_data	*data);
-void	init_side_dist_y(t_data	*data);
-void	init_ray_direction(t_data	*data, int x);
 
 /*********************************   INIT   *********************************/
 
 int		init_colors(t_data *data);
 int		init_textures_filename(t_data *data);
 int		init_windows(t_data *data);
-int		handle_key_esc(int key, t_data *data);
-int		close_window(t_data *data);
 int		init_pos_player(t_data *data);
 void	init_textures_adress(t_data *data);
 void	init_data_game(t_data *data, t_parser *parser);
 void	init_ray(t_data	*data, int x);
 void	init_pos_directions(t_data *data);
+int		close_window(t_data *data);
+void	init_key_press(t_data *data);
 
 
 /********************************   PARSING   ********************************/

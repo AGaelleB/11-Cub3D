@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 12:25:32 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 17:25:04 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/27 12:30:16 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	update_texture(t_data *data, int line_height)
 	else
 		data->game->wall_x = data->game->pos_x + data->game->dist_to_wall
 			* data->game->ray_dir_x;
-	data->game->wall_x -= floor((data->game->wall_x)); // lib math floor
+	data->game->wall_x -= floor((data->game->wall_x));
 	data->game->texture_x = (int)(data->game->wall_x * 64);
 	if (data->game->side == 0 && data->game->ray_dir_x > 0)
 		data->game->texture_x = 64 - data->game->texture_x - 1;
@@ -55,7 +55,6 @@ void	draw_vertical_column(t_data *data, int x, int y, int line_height)
 		put_pixel(data, x, y, get_rgb(data, 1));
 		y++;
 	}
-	update_texture(data, line_height);
 	while (y <= data->game->draw_end && y >= data->game->draw_start)
 	{
 		data->game->texture_y = (int)data->game->texture_pos;
@@ -75,4 +74,5 @@ void	draw_vertical_column(t_data *data, int x, int y, int line_height)
 		put_pixel(data, x, y, get_rgb(data, 0));
 		y++;
 	}
+	update_texture(data, line_height);
 }
