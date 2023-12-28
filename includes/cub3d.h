@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/27 16:18:08 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/27 19:38:49 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,8 @@ typedef struct s_game
 	int			texture_y;
 	double		texture_pos;
 	double		walk;
+	int			mouse_x;
+	int			mouse_y;
 }	t_game;
 
 typedef struct s_img

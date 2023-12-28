@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 17:49:57 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/27 15:44:09 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/28 10:43:19 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,17 @@ int	key_press(int key, t_data *data)
 		data->keys.rot_right = 1;
 	if (key == KEY_ESCAPE)
 	{
-		mlx_destroy_window(data->img_blank->mlx, data->img_blank->window);
+		// faire les free necessaires
+		mlx_destroy_window(data->img_blank->mlx, data->img_blank->window); 
 		exit (0);
 	}
 	// printf("%skey_press after KEY_W = %d%s\n", MAGENTA, data->keys.w, RESET);
 	// printf("%skey_press after KEY_A = %d%s\n", MAGENTA, data->keys.a, RESET);
 	// printf("%skey_press after KEY_S = %d%s\n", MAGENTA, data->keys.s, RESET);
-	// printf("%skey_press after KEY_D = %d%s\n\n", MAGENTA, data->keys.d, RESET);
+	// printf("%skey_press after KEY_D = %d%s\n", MAGENTA, data->keys.d, RESET);
+	// printf("%skey_press after KEY_LEFT = %d%s\n", MAGENTA, data->keys.rot_left, RESET);
+	// printf("%skey_press after KEY_RIGHT = %d%s\n\n", MAGENTA, data->keys.rot_right, RESET);
+
 	return (0);
 }
 
@@ -63,7 +67,10 @@ int	key_release(int key, t_data *data)
 	// printf("%skey_release after KEY_W = %d%s\n", GREEN, data->keys.w, RESET);
 	// printf("%skey_release after KEY_A = %d%s\n", GREEN, data->keys.a, RESET);
 	// printf("%skey_release after KEY_S = %d%s\n", GREEN, data->keys.s, RESET);
-	// printf("%skey_release after KEY_D = %d%s\n\n", GREEN, data->keys.d, RESET);
+	// printf("%skey_release after KEY_D = %d%s\n", GREEN, data->keys.d, RESET);
+	// printf("%skey_release after KEY_LEFT = %d%s\n", GREEN, data->keys.rot_left, RESET);
+	// printf("%skey_release after KEY_RIGHT = %d%s\n\n", GREEN, data->keys.rot_right, RESET);
+
 	return (0);
 }
 

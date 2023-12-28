@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:40:03 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/27 16:12:22 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/28 10:52:49 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,18 @@ int	main(int ac, char **av)
 }
 
 /*
+	ATTENTION SEGFAULT SI :
+	
+	- F and C dans la map ne se trouvent pas en dernier argument 
+
+
+
+
+
+
+
+
+
 	sefault si je fais, gauche et que je me prend direct le mur d en face, je peux plus bouger 
 
 	==296468== Process terminating with default action of signal 2 (SIGINT)
@@ -52,8 +64,6 @@ int	main(int ac, char **av)
 	==296468==    by 0x1167CC: mlx_loop (in /home/gaelle/Documents/Stud-42/11-Cub3D/cub3D)
 	==296468==    by 0x10EBC2: exec_game (cub3d.c:32)
 	==296468==    by 0x10EA87: main (main.c:40)
-
-
 
 
 	./cub3D maps/test_gaga.cub

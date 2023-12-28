@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:57:41 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/27 16:17:53 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/28 12:19:28 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	display_game(t_data *data)
 		init_ray(data, x);
 		throw_rays(data);
 		calcul_wall_drawing_params(data);
-		draw_vertical_column(data, x, 0, data->game->line_height);
+		draw_vertical_column(data, x, 0, data->game->line_height); ///////////
 		x++;
 	}
 	mlx_put_image_to_window(data->img_blank->mlx, data->img_blank->window,

@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 11:51:26 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/27 16:10:05 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/28 15:06:08 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ void	put_pixel(t_data *data, int x, int y, int C_or_F)
 	if (x < 0 || y < 0 || y > HEIGHT - 1 || x > WIDTH - 1)
 		return ;
 	dest = data->img_blank->data_addr + (y * data->img_blank->size_line) + x
-		* (data->img_blank->bits_per_pixels
-			/ 8);
+		* (data->img_blank->bits_per_pixels / 8);
 	*(int *)dest = C_or_F;
 }
 
@@ -43,12 +42,6 @@ int	get_color(t_data *data, t_img *texture)
 {
 	char	*dest;
 
-	// est ce au il faut que je malloc ? 
-	dest = malloc(sizeof(1000));
-	if (!dest)
-		return (1);
-	// je fais deja un malloc de t_game a init_data_game
-
 	if (data->game->texture_x < 0 || data->game->texture_y < 0
 		|| data->game->texture_y > HEIGHT - 1
 		|| data->game->texture_x > WIDTH - 1)
@@ -56,7 +49,17 @@ int	get_color(t_data *data, t_img *texture)
 	dest = texture->data_addr + (data->game->texture_y
 			* texture->size_line + data->game->texture_x
 			* (texture->bits_per_pixels / 8));
-	return (*(int *)dest);
+
+	// printf("Texture X: %d, Texture Y: %d\n", data->game->texture_x, data->game->texture_y);
+	// printf("Size Line: %d, Bits Per Pixel: %d\n", texture->size_line, texture->bits_per_pixels);
+	// printf("Data Addr: %p\n", texture->data_addr);
+
+	if (dest == NULL) {
+		// printf("Dest is NULL\n");
+		return 0;
+	}
+
+	return (*(int *)dest); // (put_pixels.c:52)
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:39:45 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/27 16:18:01 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/28 14:42:15 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	exec_game(t_parser *parser)
 	// print_stuff_before_init(&data); // PRINT
 	if (init_windows(&data))
 		return ;
+	// init_textures_filename(&data);
 	init_textures_adress(&data); // deplace ici sinon bug car init_mlx dans init_windows
 	// print_stuff_after_init(&data); // PRINT
 	mlx_hook(data.img_blank->window, KeyPress, KeyPressMask, key_press, &data);
