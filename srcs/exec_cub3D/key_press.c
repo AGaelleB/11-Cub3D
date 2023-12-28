@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 17:49:57 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/28 10:43:19 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/28 16:48:47 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	key_press(int key, t_data *data)
 	// printf("%skey_press after KEY_D = %d%s\n", MAGENTA, data->keys.d, RESET);
 	// printf("%skey_press after KEY_LEFT = %d%s\n", MAGENTA, data->keys.rot_left, RESET);
 	// printf("%skey_press after KEY_RIGHT = %d%s\n\n", MAGENTA, data->keys.rot_right, RESET);
-
 	return (0);
 }
 
@@ -70,7 +69,6 @@ int	key_release(int key, t_data *data)
 	// printf("%skey_release after KEY_D = %d%s\n", GREEN, data->keys.d, RESET);
 	// printf("%skey_release after KEY_LEFT = %d%s\n", GREEN, data->keys.rot_left, RESET);
 	// printf("%skey_release after KEY_RIGHT = %d%s\n\n", GREEN, data->keys.rot_right, RESET);
-
 	return (0);
 }
 

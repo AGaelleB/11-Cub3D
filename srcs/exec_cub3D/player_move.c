@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:55:55 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/27 15:01:48 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/28 16:06:24 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,6 @@ void	movement_player(t_data *data)
 {
 	movement_player_up_down(data);
 	movement_player_right_left(data);
-	movement_player_rotation_right(data);
 	movement_player_rotation_left(data);
+	movement_player_rotation_right(data);
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_pos_dir_n_and_s.c                              :+:      :+:    :+:   */
+/*   init_pos_directions.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 11:43:17 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 17:26:10 by abonnefo         ###   ########.fr       */
+/*   Created: 2023/12/28 16:47:43 by abonnefo          #+#    #+#             */
+/*   Updated: 2023/12/28 16:47:50 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-/*
+/* EXPLICATION DES CALCULS
 	Vecteurs de Direction (dir_x, dir_y)
 	Ces vecteurs déterminent la direction dans laquelle le joueur regarde.
 	Ils peuvent être dérivés de l'angle de vue du joueur. Par exemple :
@@ -51,7 +51,7 @@ void	init_pos_dir_w_and_e(t_data *data)
 	{
 		data->game->dir_x = 0; // pas de mouvement sur l'axe x
 		data->game->dir_y = -1; // mouvement négatif sur l'axe y
-		data->game->plan_x = 0.66; // plan de caméra pour un champ de vision
+		data->game->plan_x = -0.66; // plan de caméra pour un champ de vision
 		data->game->plan_y = 0; // pas de mouvement vertical sur le plan
 	}
 	else if (data->valid_map[(int)data->game->pos_x][(int)data->game->pos_y]
@@ -59,7 +59,7 @@ void	init_pos_dir_w_and_e(t_data *data)
 	{
 		data->game->dir_x = 0;
 		data->game->dir_y = 1;
-		data->game->plan_x = -0.66;
+		data->game->plan_x = 0.66;
 		data->game->plan_y = 0;
 	}
 	return ;

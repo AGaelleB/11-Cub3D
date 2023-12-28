@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 13:43:50 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/28 15:09:33 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/28 16:41:48 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	init_textures_adress_north(t_data *data)
 			data->texture_NO->filename, &width, &height);
 	if (!data->texture_NO->img_ptr)
 	{
-		// ajouter une erreur
 		err("Error\nNorth mlx_xpm_file_to_image failed\n");
 		return ;
 	}

@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:55:31 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/28 15:12:03 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/28 16:43:10 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,8 @@ void	init_key_press(t_data *data)
 int	init_windows(t_data *data)
 {
 	data->img_blank = ft_calloc(1, sizeof(t_img));
-	// data->img_blank = malloc(sizeof(t_img));
 	if (!data->img_blank)
 		return (1);
-	// ft_memset(data->img_blank, 0, sizeof(t_img)); // a resolu pleins de problems d init !!!
 	data->img_blank->mlx = mlx_init();
 	if (!data->img_blank->mlx)
 		err("Error\nInit mlx failed\n");
@@ -36,8 +34,7 @@ int	init_windows(t_data *data)
 			WIDTH, HEIGHT, "cub3D");
 	if (!data->img_blank->window)
 		err("Error\nInit window failed\n");
-	/* 	mlx_new_image pour creer l image qui recevra ensuite les pixels
-	pensez a faire mlx_destroy_image a la fin */
+	/* mlx_new_image pour creer l image, faire mlx_destroy_image a la fin */
 	data->img_blank->img_ptr = mlx_new_image(data->img_blank->mlx,
 			WIDTH, HEIGHT);
 	data->img_blank->data_addr = mlx_get_data_addr(data->img_blank->img_ptr,

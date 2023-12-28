@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:02:00 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/22 14:45:35 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/28 15:57:34 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	verif_borders(t_parser *parser)
 	int	row_length;
 
 	j = 0;
-	while (j < parser->map_width && parser->map[0][j])
+	while (j < parser->map_width && parser->map[0][j]
+		&& parser->map[parser->map_height - 1][j])
 	{
 		if (parser->map[0][j] == '0'
 			|| parser->map[parser->map_height - 1][j] == '0')
@@ -27,7 +28,7 @@ int	verif_borders(t_parser *parser)
 		j++;
 	}
 	i = 1;
-	while (i < parser->map_height - 1)
+	while (i < parser->map_height - 1 && parser->map[i][0])
 	{
 		row_length = ft_strlen(parser->map[i]);
 		if (parser->map[i][0] == '0' || (row_length > parser->map_width - 1

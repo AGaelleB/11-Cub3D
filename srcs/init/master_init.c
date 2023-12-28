@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 10:54:32 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/28 15:00:23 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/28 16:44:54 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,16 @@
 
 void	init_data_game(t_data *data, t_parser *parser)
 {
-	data->game = malloc(sizeof(t_game));
+	data->game = ft_calloc(1, sizeof(t_game));
 	if (!data->game)
 		return ;
-	ft_memset(data->game, 0, sizeof(t_game)); // a resolu pleins de problems d init !!!
 	data->valid_map = parser->map;
 	data->valid_param = parser->tab;
 	init_colors(data);
 	init_pos_player(data);
 	data->game->pos_x = data->pos_player_x + 0.5; // ajouter 0.5 place le joueur au centre de la cellule de la grille, et non dans un coin
 	data->game->pos_y = data->pos_player_y + 0.5;
-	init_textures_filename(data); // stock les filenames
-
-	// data->texture_NO = NULL;
-	// data->texture_SO = NULL;
-	// data->texture_EA = NULL;
-	// data->texture_WE = NULL;
-
+	init_textures_filename(data);
 	data->game->side = 0;
 	init_pos_directions(data);
 	init_key_press(data);
