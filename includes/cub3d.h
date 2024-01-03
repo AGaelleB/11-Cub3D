@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/03 16:19:32 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/03 16:41:32 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@
 # define MAGENTA "\033[35m"
 # define CYAN "\033[36m"
 
-# define WIDTH 1280 // x
-# define HEIGHT 960 // y
+# define WIDTH 1280
+# define HEIGHT 960
 
 # define COLOR_BLACK 0x000000 
 # define COLOR_BRICK 0xa62c01
