@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:39:45 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/03 14:23:35 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/03 15:02:11 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int	capture_mouse(int x, int y, t_data *data)
 	previous_x = data->game->mouse_x;
 	data->game->mouse_x = x;
 	if (data->game->mouse_x > previous_x)
-		data->game->cam_mouse_right = TRUE;
+		data->game->cam_mouse_right = 1;
 	else if (data->game->mouse_x < previous_x)
-		data->game->cam_mouse_left = TRUE;
+		data->game->cam_mouse_left = 1;
 	else
 	{
-		data->game->cam_mouse_left = FALSE;
-		data->game->cam_mouse_right = FALSE;
+		data->game->cam_mouse_left = 0;
+		data->game->cam_mouse_right = 0;
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/03 14:15:08 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/03 15:02:55 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,26 +36,11 @@
 # define MAGENTA "\033[35m"
 # define CYAN "\033[36m"
 
-// # define WIDTH 1280 // x
-// # define HEIGHT 960 // y
+# define WIDTH 1280 // x
+# define HEIGHT 960 // y
 
-
-// # define XK_c 0x0063
-// # define XK_v 0x0076
-
-// # define XK_c 99
-// # define XK_v 118
-
-# define COLOR_BLACK 0x000000 // x
-# define COLOR_BRICK 0xa62c01 // y
-// # define COLOR_PLAYER "\033[32m" // y
-
-
-# define WIDTH 1000 // x
-# define HEIGHT 1000 // y
-
-# define TRUE 1 // ca me met rouge quand j'enleve
-# define FALSE 0 // ca me met rouge quand j'enleve
+# define COLOR_BLACK 0x000000 
+# define COLOR_BRICK 0xa62c01
 
 # define KEY_ESCAPE 65307
 # define KEY_W 119
@@ -68,8 +53,8 @@
 # define SPEED_MOVE 0.015
 # define SPEED_ROT 0.01
 
-# define INFINITY_VALUE 1e30 //"1e30" est une façon d'écrire 10^30
-# define MAX_COLOR_VALUE 0xFF  // Equivalent to 255 in decimal
+# define INFINITY_VALUE 1e30
+# define MAX_COLOR_VALUE 0xFF
 
 typedef struct s_keys
 {
