@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_press.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 17:49:57 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/28 16:48:47 by abonnefo         ###   ########.fr       */
+/*   Updated: 2023/12/29 10:55:16 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ int	key_press(int key, t_data *data)
 		mlx_destroy_window(data->img_blank->mlx, data->img_blank->window); 
 		exit (0);
 	}
+	if (key == XK_c)
+		data->keys.mouse_move = 1;
+	if (key == XK_v)
+		data->keys.mouse_move = 0;
 	// printf("%skey_press after KEY_W = %d%s\n", MAGENTA, data->keys.w, RESET);
 	// printf("%skey_press after KEY_A = %d%s\n", MAGENTA, data->keys.a, RESET);
 	// printf("%skey_press after KEY_S = %d%s\n", MAGENTA, data->keys.s, RESET);
@@ -63,6 +67,14 @@ int	key_release(int key, t_data *data)
 		data->keys.rot_left = 0;
 	if (key == KEY_RIGHT)
 		data->keys.rot_right = 0;
+
+	/////////////////////////////////
+	// if (key == KEY_LEFT)
+	// 	data->keys.rot_left = 0;
+	// if (key == KEY_RIGHT)
+	// 	data->keys.rot_right = 0;
+	////////////////////////////////
+
 	// printf("%skey_release after KEY_W = %d%s\n", GREEN, data->keys.w, RESET);
 	// printf("%skey_release after KEY_A = %d%s\n", GREEN, data->keys.a, RESET);
 	// printf("%skey_release after KEY_S = %d%s\n", GREEN, data->keys.s, RESET);

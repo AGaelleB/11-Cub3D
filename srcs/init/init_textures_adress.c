@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_textures_adress.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 13:43:50 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/28 16:41:48 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/01 12:26:30 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,6 @@ void	init_textures_adress(t_data *data)
 {
 	init_textures_adress_north(data);
 	init_textures_adress_south(data);
-	init_textures_adress_east(data);
 	init_textures_adress_west(data);
+	init_textures_adress_east(data);
 }

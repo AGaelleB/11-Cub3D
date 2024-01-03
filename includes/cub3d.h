@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/27 19:38:49 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/03 14:15:08 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,23 @@
 // # define WIDTH 1280 // x
 // # define HEIGHT 960 // y
 
-# define WIDTH 640 // x
-# define HEIGHT 480 // y
+
+// # define XK_c 0x0063
+// # define XK_v 0x0076
+
+// # define XK_c 99
+// # define XK_v 118
+
+# define COLOR_BLACK 0x000000 // x
+# define COLOR_BRICK 0xa62c01 // y
+// # define COLOR_PLAYER "\033[32m" // y
+
+
+# define WIDTH 1000 // x
+# define HEIGHT 1000 // y
+
+# define TRUE 1 // ca me met rouge quand j'enleve
+# define FALSE 0 // ca me met rouge quand j'enleve
 
 # define KEY_ESCAPE 65307
 # define KEY_W 119
@@ -64,6 +79,10 @@ typedef struct s_keys
 	int	d;
 	int	rot_left;
 	int	rot_right;
+	int	mouse_move;
+	int	mouse_on_left;
+	int	mouse_on_right;
+	int	keypressed[5];
 }	t_keys;
 
 typedef struct s_colors
@@ -104,7 +123,8 @@ typedef struct s_game
 	double		texture_pos;
 	double		walk;
 	int			mouse_x;
-	int			mouse_y;
+	int			cam_mouse_right;
+	int			cam_mouse_left;
 }	t_game;
 
 typedef struct s_img

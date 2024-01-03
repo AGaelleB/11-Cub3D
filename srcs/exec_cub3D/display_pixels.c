@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 12:25:32 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/28 16:28:58 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/03 14:58:22 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	draw_vertical_column(t_data *data, int x, int y, int line_height)
 		put_pixel(data, x, y, get_rgb(data, 1));
 		y++;
 	}
+	update_texture(data, line_height);
 	while (y <= data->game->draw_end && y >= data->game->draw_start)
 	{
 		data->game->texture_y = (int)data->game->texture_pos;
@@ -74,5 +75,4 @@ void	draw_vertical_column(t_data *data, int x, int y, int line_height)
 		put_pixel(data, x, y, get_rgb(data, 0));
 		y++;
 	}
-	update_texture(data, line_height);
 }

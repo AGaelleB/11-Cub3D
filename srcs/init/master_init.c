@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   master_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 10:54:32 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/28 16:44:54 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/03 13:50:25 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	init_data_game(t_data *data, t_parser *parser)
 	data->game->pos_y = data->pos_player_y + 0.5;
 	init_textures_filename(data);
 	data->game->side = 0;
+	data->keys.mouse_move = 0; // new
 	init_pos_directions(data);
 	init_key_press(data);
 }

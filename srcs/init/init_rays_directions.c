@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   init_rays_directions.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 11:43:17 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/28 09:48:53 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/02 12:53:02 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	init_ray_direction(t_data	*data, int x)
+void	init_ray_direction(t_data *data, int x) // pb ici ??
 {
 	data->game->camera_x = 2 * x / (double)WIDTH - 1;
 	data->game->ray_dir_x = data->game->dir_x
@@ -32,7 +32,6 @@ void	init_ray_direction(t_data	*data, int x)
 void	init_side_dist_x(t_data	*data)
 {
 	data->game->map_x = (int)data->game->pos_x;
-	data->game->map_y = (int)data->game->pos_y;
 	if (data->game->ray_dir_x < 0)
 	{
 		data->game->step_x = -1;
@@ -49,6 +48,7 @@ void	init_side_dist_x(t_data	*data)
 
 void	init_side_dist_y(t_data	*data)
 {
+	data->game->map_y = (int)data->game->pos_y;
 	if (data->game->ray_dir_y < 0)
 	{
 		data->game->step_y = -1;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   master_pars.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:40:13 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 11:12:41 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/02 13:38:48 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	master_verif_args(int ac, char **av)
 {
 	if (ac != 2)
 		return (err("Error\nInvalid number of arguments\n"));
+	(void)ac;
 	if (verif_extensions(av[1], av) != 0)
 		return (1);
 	if (verif_directory(av[1]) != 0)
