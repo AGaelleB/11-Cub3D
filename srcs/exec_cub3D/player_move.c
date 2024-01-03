@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_move.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:55:55 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/03 13:50:15 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/03 16:21:10 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	movement_player_rotation_right(t_data *data)
 	double	old_dir_x;
 	double	old_plane_x;
 
-	if (data->keys.rot_right == 1 || data->keys.mouse_on_right == 1) //new
+	if (data->keys.rot_right == 1 || data->keys.mouse_rot_right == 1)
 	{
 		old_dir_x = data->game->dir_x;
 		data->game->dir_x = data->game->dir_x * cos(-SPEED_ROT) - data->game->dir_y * sin(-SPEED_ROT);
@@ -82,7 +82,7 @@ void	movement_player_rotation_left(t_data *data)
 	double	old_dir_x;
 	double	old_plane_x;
 
-	if (data->keys.rot_left == 1 || data->keys.mouse_on_left == 1) //new
+	if (data->keys.rot_left == 1 || data->keys.mouse_rot_left == 1)
 	{
 		old_dir_x = data->game->dir_x;
 		data->game->dir_x = data->game->dir_x * cos(SPEED_ROT)
@@ -103,4 +103,6 @@ void	movement_player(t_data *data)
 	movement_player_right_left(data);
 	movement_player_rotation_left(data);
 	movement_player_rotation_right(data);
+	data->keys.mouse_rot_right = 0;
+	data->keys.mouse_rot_left = 0;
 }

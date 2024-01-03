@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:55:31 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/28 16:43:10 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/03 16:09:19 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	init_key_press(t_data *data)
 	data->keys.d = 0;
 	data->keys.rot_left = 0;
 	data->keys.rot_right = 0;
+	data->keys.mouse_rot_right = 0;
+	data->keys.mouse_rot_left = 0;
 }
 
 int	init_windows(t_data *data)
@@ -34,7 +36,6 @@ int	init_windows(t_data *data)
 			WIDTH, HEIGHT, "cub3D");
 	if (!data->img_blank->window)
 		err("Error\nInit window failed\n");
-	/* mlx_new_image pour creer l image, faire mlx_destroy_image a la fin */
 	data->img_blank->img_ptr = mlx_new_image(data->img_blank->mlx,
 			WIDTH, HEIGHT);
 	data->img_blank->data_addr = mlx_get_data_addr(data->img_blank->img_ptr,

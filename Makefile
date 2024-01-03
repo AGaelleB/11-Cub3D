@@ -6,7 +6,7 @@
 #    By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 10:44:39 by abonnefo          #+#    #+#              #
-#    Updated: 2023/12/27 15:24:58 by abonnefo         ###   ########.fr        #
+#    Updated: 2024/01/03 16:19:47 by abonnefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRCS_MAIN = srcs/main/main.c \
 
 SRCS_EXEC_CUB3D = srcs/exec_cub3D/cub3d.c \
 	srcs/exec_cub3D/display_game.c \
+	srcs/exec_cub3D/display_map.c \
 	srcs/exec_cub3D/display_pixels.c \
 	srcs/exec_cub3D/key_press.c \
 	srcs/exec_cub3D/player_move.c \

@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/03 15:02:55 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/03 16:19:32 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,9 @@ typedef struct s_keys
 	int	d;
 	int	rot_left;
 	int	rot_right;
-	int	mouse_move;
-	int	mouse_on_left;
-	int	mouse_on_right;
-	int	keypressed[5];
+	int	mouse_rot_right;
+	int	mouse_rot_left;
+	
 }	t_keys;
 
 typedef struct s_colors
@@ -107,9 +106,6 @@ typedef struct s_game
 	int			texture_y;
 	double		texture_pos;
 	double		walk;
-	int			mouse_x;
-	int			cam_mouse_right;
-	int			cam_mouse_left;
 }	t_game;
 
 typedef struct s_img
@@ -159,10 +155,6 @@ typedef struct s_data
 }	t_data;
 
 
-/* POUBELLE TEMP */
-void	print_stuff_before_init(t_data	*data);
-void	print_stuff_after_init(t_data	*data);
-
 /*********************************   MAIN   **********************************/
 
 
@@ -179,7 +171,7 @@ int		get_color(t_data *data, t_img *texture);
 int		key_press(int key, t_data *data);
 int		key_release(int key, t_data *data);
 void	movement_player(t_data *data);
-
+void	display_minimap(t_data *data, int x, int y);
 
 /*********************************   INIT   *********************************/
 
