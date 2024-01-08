@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/03 16:41:32 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/05 17:10:15 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,14 +146,13 @@ typedef struct s_data
 	t_img		*img_blank; // créer une nouvelle image vierge avec mlx_new_image
 	t_img		*texture_NO;
 	t_img		*texture_SO;
-	t_img		*texture_WE;
 	t_img		*texture_EA;
+	t_img		*texture_WE;
 	t_colors	colors_ceiling;
 	t_colors	colors_floor;
 	t_game		*game;
 	t_keys		keys;
 }	t_data;
-
 
 /*********************************   MAIN   **********************************/
 
@@ -213,6 +212,7 @@ void	ft_put_in_tab(char *map, t_parser *parser);
 /********************************   UTILS   *********************************/
 
 void	free_tab(char **tab);
+void	free_all(t_data *data);
 
 int		ft_strncmp_cub3d(char *s1, char *s2, int n);
 int		ft_strcmp_cub3d(char *s1, char *s2);

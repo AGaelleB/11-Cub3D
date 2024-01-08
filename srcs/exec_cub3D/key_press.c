@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_press.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 17:49:57 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/03 16:21:01 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/05 17:10:46 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ int	key_press(int key, t_data *data)
 		data->keys.rot_right = 1;
 	if (key == KEY_ESCAPE)
 	{
-		// faire les free necessaires
-		mlx_destroy_window(data->img_blank->mlx, data->img_blank->window); 
-		exit (0);
+		free_all(data);
+		exit(0);
 	}
 	return (0);
 }
