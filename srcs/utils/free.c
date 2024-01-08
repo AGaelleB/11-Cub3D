@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_struct.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:07:38 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/05 17:09:32 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/08 10:37:17 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,38 +27,41 @@ void	free_tab(char **tab)
 
 void	free_texture_filename_no_so(t_data *data)
 {
-	if (data->texture_NO)
+	if (data->texture_north)
 	{
-		free(data->texture_NO->filename);
-		if (data->texture_NO->img_ptr)
-			mlx_destroy_image(data->img_blank->mlx, data->texture_NO->img_ptr);
-		free(data->texture_NO);
+		free(data->texture_north->filename);
+		if (data->texture_north->img_ptr)
+			mlx_destroy_image(data->img_blank->mlx,
+				data->texture_north->img_ptr);
+		free(data->texture_north);
 	}
-	if (data->texture_SO)
+	if (data->texture_south)
 	{
-		free(data->texture_SO->filename);
-		if (data->texture_SO->img_ptr)
-			mlx_destroy_image(data->img_blank->mlx, data->texture_SO->img_ptr);
-		free(data->texture_SO);
+		free(data->texture_south->filename);
+		if (data->texture_south->img_ptr)
+			mlx_destroy_image(data->img_blank->mlx,
+				data->texture_south->img_ptr);
+		free(data->texture_south);
 	}
-	
 }
 
 void	free_texture_filename_ea_we(t_data *data)
 {
-	if (data->texture_EA)
+	if (data->texture_east)
 	{
-		free(data->texture_EA->filename);
-		if (data->texture_EA->img_ptr)
-			mlx_destroy_image(data->img_blank->mlx, data->texture_EA->img_ptr);
-		free(data->texture_EA);
+		free(data->texture_east->filename);
+		if (data->texture_east->img_ptr)
+			mlx_destroy_image(data->img_blank->mlx,
+				data->texture_east->img_ptr);
+		free(data->texture_east);
 	}
-	if (data->texture_WE)
+	if (data->texture_west)
 	{
-		free(data->texture_WE->filename);
-		if (data->texture_WE->img_ptr)
-			mlx_destroy_image(data->img_blank->mlx, data->texture_WE->img_ptr);
-		free(data->texture_WE);
+		free(data->texture_west->filename);
+		if (data->texture_west->img_ptr)
+			mlx_destroy_image(data->img_blank->mlx,
+				data->texture_west->img_ptr);
+		free(data->texture_west);
 	}
 }
 
@@ -71,7 +74,7 @@ void	free_all(t_data *data)
 	free(data->game);
 	if (data->img_blank->img_ptr)
 		mlx_destroy_image(data->img_blank->mlx, data->img_blank->img_ptr);
-	mlx_destroy_window(data->img_blank->mlx, data->img_blank->window); 
+	mlx_destroy_window(data->img_blank->mlx, data->img_blank->window);
 	mlx_destroy_display(data->img_blank->mlx);
 	if (data->img_blank->mlx)
 		free(data->img_blank->mlx);

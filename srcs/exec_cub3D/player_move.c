@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:55:55 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/03 16:33:26 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/08 10:03:55 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,10 @@ void	movement_player_rotation_right(t_data *data)
 	if (data->keys.rot_right == 1 || data->keys.mouse_rot_right == 1)
 	{
 		old_dir_x = data->game->dir_x;
-		data->game->dir_x = data->game->dir_x * cos(-SPEED_ROT) - data->game->dir_y * sin(-SPEED_ROT);
-		data->game->dir_y = old_dir_x * sin(-SPEED_ROT) + data->game->dir_y * cos(-SPEED_ROT);
+		data->game->dir_x = data->game->dir_x * cos(-SPEED_ROT)
+			- data->game->dir_y * sin(-SPEED_ROT);
+		data->game->dir_y = old_dir_x * sin(-SPEED_ROT)
+			+ data->game->dir_y * cos(-SPEED_ROT);
 		old_plane_x = data->game->plan_x;
 		data->game->plan_x = data->game->plan_x * cos(-SPEED_ROT)
 			- data->game->plan_y * sin(-SPEED_ROT);

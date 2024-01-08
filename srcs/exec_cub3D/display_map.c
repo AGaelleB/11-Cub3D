@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:18:55 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/06 15:33:21 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/08 09:56:41 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,11 @@ void	display_minimap(t_data *data, int x, int y)
 		x = 0;
 		while (i < ft_strlen(data->valid_map[index_tab]))
 		{
-			if (i == (int)data->game->pos_y && index_tab == (int)data->game->pos_x)
+			if (i == (int)data->game->pos_y
+				&& index_tab == (int)data->game->pos_x)
 				put_x10(data, x, y, COLOR_BLACK);
-			else if (data->valid_map[index_tab][i] && data->valid_map[index_tab][i] == '1')
+			else if (data->valid_map[index_tab][i]
+				&& data->valid_map[index_tab][i] == '1')
 				put_x10(data, x, y, COLOR_BRICK);
 			x += 6;
 			i++;

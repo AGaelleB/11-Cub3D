@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 12:25:32 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/03 14:58:22 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/08 10:36:24 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,13 @@ void	draw_vertical_column(t_data *data, int x, int y, int line_height)
 		data->game->texture_y = (int)data->game->texture_pos;
 		data->game->texture_pos += data->game->walk;
 		if (data->game->side == 0 && data->game->ray_dir_x < 0)
-			put_pixel(data, x, y, get_color(data, data->texture_NO));
+			put_pixel(data, x, y, get_color(data, data->texture_north));
 		else if (data->game->side == 0 && data->game->ray_dir_x >= 0)
-			put_pixel(data, x, y, get_color(data, data->texture_SO));
+			put_pixel(data, x, y, get_color(data, data->texture_south));
 		else if (data->game->side == 1 && data->game->ray_dir_y < 0)
-			put_pixel(data, x, y, get_color(data, data->texture_WE));
+			put_pixel(data, x, y, get_color(data, data->texture_west));
 		else if (data->game->side == 1 && data->game->ray_dir_y >= 0)
-			put_pixel(data, x, y, get_color(data, data->texture_EA));
+			put_pixel(data, x, y, get_color(data, data->texture_east));
 		y++;
 	}
 	while (y < HEIGHT)

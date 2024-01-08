@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_game.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:57:41 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/06 15:21:45 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/08 09:57:07 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	update_movement_keyboard_and_mouse(t_data *data)
 		movement_player(data);
 	if (data->keys.mouse_rot_left == 1)
 		movement_player(data);
-
 }
 
 int	display_game(t_data *data)

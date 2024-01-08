@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:57:39 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/22 15:21:34 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/08 10:16:06 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,12 @@ int	check_error_numbers(t_parser *parser, char *str)
 	while (str[i] && !ft_isdigit(str[i]))
 		i++;
 	dest = copy_from(str, str[i]);
+	if (!dest)
+	{
+		err("Error\nBad numbers\n");
+		free_tab(parser->tab);
+		exit(1);
+	}
 	tab_color = ft_split(dest, ',');
 	i = 0;
 	check_tab_color(parser, dest, tab_color);

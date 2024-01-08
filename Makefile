@@ -6,7 +6,7 @@
 #    By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 10:44:39 by abonnefo          #+#    #+#              #
-#    Updated: 2024/01/03 16:19:47 by abonnefo         ###   ########.fr        #
+#    Updated: 2024/01/08 10:37:55 by abonnefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ SRCS_PARSING = srcs/parsing/master_pars.c \
 	srcs/parsing/pars_start_player.c \
 
 SRCS_UTILS = srcs/utils/create_map.c \
-	srcs/utils/free_struct.c \
+	srcs/utils/free.c \
 	srcs/utils/libft_modify.c \
 	srcs/utils/put_in_tab.c \
 	srcs/utils/read_and_join.c \

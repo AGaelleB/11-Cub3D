@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:55:31 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/03 16:09:19 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/08 10:06:56 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,3 @@ int	init_windows(t_data *data)
 			&(data->img_blank->size_line), &(data->img_blank->endian));
 	return (0);
 }
-

@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:53:17 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/22 15:21:25 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/08 10:26:53 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@ int	check_error_textures(t_parser *parser, char *str)
 	if (begin_at_texture(str))
 		return (1);
 	dest = copy_from(str, 't');
+	if (!dest)
+	{
+		err("Error\nBad texture2\n");
+		free_tab(parser->tab);
+		exit(1);
+	}
 	if (access(dest, F_OK) != 0)
 	{
 		err("Error\nBad texture\n");

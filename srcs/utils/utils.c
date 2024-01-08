@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:40:20 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 11:55:04 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/08 10:14:08 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ char	*copy_from(char *str, char c_start)
 	{
 		size = ft_strlen(pos);
 		dest = malloc(sizeof(char) * (size + 1));
+		if (!dest)
+			return (NULL);
 		ft_strcpy(dest, pos);
 		return (dest);
 	}
@@ -84,7 +86,7 @@ int	is_all_space(char *input)
 	return (1);
 }
 
-float	ft_fabs(float i) // calcule la valeur absolue d'un nombre à virgule flottante
+float	ft_fabs(float i)
 {
 	if (i < 0)
 		return (i *= -1);

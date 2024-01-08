@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 10:54:32 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/03 15:40:22 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/08 10:05:38 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	init_data_game(t_data *data, t_parser *parser)
 	data->valid_param = parser->tab;
 	init_colors(data);
 	init_pos_player(data);
-	data->game->pos_x = data->pos_player_x + 0.5; // ajouter 0.5 place le joueur au centre de la cellule de la grille, et non dans un coin
+	data->game->pos_x = data->pos_player_x + 0.5;
 	data->game->pos_y = data->pos_player_y + 0.5;
 	init_textures_filename(data);
 	data->game->side = 0;

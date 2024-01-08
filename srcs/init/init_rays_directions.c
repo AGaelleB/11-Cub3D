@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   init_rays_directions.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 11:43:17 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/02 12:53:02 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/08 10:06:44 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	init_ray_direction(t_data *data, int x) // pb ici ??
+void	init_ray_direction(t_data *data, int x)
 {
 	data->game->camera_x = 2 * x / (double)WIDTH - 1;
 	data->game->ray_dir_x = data->game->dir_x

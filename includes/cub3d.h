@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/05 17:10:15 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/08 10:44:32 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdlib.h>
 # include <sys/stat.h>
 # include <unistd.h>
-#include <stdbool.h>
+# include <stdbool.h>
 
 # include "../includes/ft_printf.h"
 # include "../includes/get_next_line.h"
@@ -58,15 +58,14 @@
 
 typedef struct s_keys
 {
-	int	w;
-	int	a;
-	int	s;
-	int	d;
-	int	rot_left;
-	int	rot_right;
-	int	mouse_rot_right;
-	int	mouse_rot_left;
-	
+	int			w;
+	int			a;
+	int			s;
+	int			d;
+	int			rot_left;
+	int			rot_right;
+	int			mouse_rot_right;
+	int			mouse_rot_left;
 }	t_keys;
 
 typedef struct s_colors
@@ -78,25 +77,25 @@ typedef struct s_colors
 
 typedef struct s_game
 {
-	double		pos_x;			// Position de départ x et y
-	double		pos_y;			// Position de départ x et y
-	double		dir_x;			// vecteur de direction initial
-	double		dir_y;			// vecteur de direction initial
-	double		plan_x;			//la version Raycaster 2D du plan de la caméra
-	double		plan_y;			//la version Raycaster 2D du plan de la caméra
-	double		camera_x;		//coordonnée x dans l'espace de la caméra
+	double		pos_x;
+	double		pos_y;
+	double		dir_x;
+	double		dir_y;
+	double		plan_x;
+	double		plan_y;
+	double		camera_x;
 	double		ray_dir_x;
 	double		ray_dir_y;
-	double		delta_dist_x;	//the distance the ray has to travel to go from 1 x-side to the next x-side
-	double		delta_dist_y;	//the distance the ray has to travel to go from 1 x-side to the next x-side
-	double		side_dist_x;	//the distance the ray has to travel from its start position to the first x-side and the first y-side
-	double		side_dist_y;	//the distance the ray has to travel from its start position to the first x-side and the first y-side
+	double		delta_dist_x;
+	double		delta_dist_y;
+	double		side_dist_x;
+	double		side_dist_y;
 	int			map_x;
 	int			map_y;
 	int			step_x;
 	int			step_y;
-	int			hit;			//was there a wall hit?
-	int			side;			//was a NS or a EW wall hit?
+	int			hit;
+	int			side;
 	double		dist_to_wall;
 	int			line_height;
 	int			draw_start;
@@ -114,7 +113,7 @@ typedef struct s_img
 	void		*window;
 	char		*filename;
 	char		*data_addr;
-	void		*img_ptr; // stocker le pointeur vers une image chargée
+	void		*img_ptr;
 	int			bits_per_pixels;
 	int			size_line;
 	int			endian;
@@ -143,47 +142,57 @@ typedef struct s_data
 	int			pos_player_y;
 	int			line_height;
 	t_parser	*parser;
-	t_img		*img_blank; // créer une nouvelle image vierge avec mlx_new_image
-	t_img		*texture_NO;
-	t_img		*texture_SO;
-	t_img		*texture_EA;
-	t_img		*texture_WE;
+	t_img		*img_blank;
+	t_img		*texture_north;
+	t_img		*texture_south;
+	t_img		*texture_east;
+	t_img		*texture_west;
 	t_colors	colors_ceiling;
 	t_colors	colors_floor;
 	t_game		*game;
 	t_keys		keys;
 }	t_data;
 
-/*********************************   MAIN   **********************************/
-
-
 /*******************************   EXEC_CUB3D   ******************************/
 
 void	exec_game(t_parser *parser);
+
 int		display_game(t_data *data);
-void	throw_rays(t_data *data);
+
+void	display_minimap(t_data *data, int x, int y);
+
 void	calcul_wall_drawing_params(t_data *data);
 void	draw_vertical_column(t_data *data, int x, int y, int line_height);
+
+int		key_release(int key, t_data *data);
+int		key_press(int key, t_data *data);
+
+void	movement_player(t_data *data);
+
 void	put_pixel(t_data *data, int x, int y, int C_or_F);
 int		get_rgb(t_data *data, int C_or_F);
 int		get_color(t_data *data, t_img *texture);
-int		key_press(int key, t_data *data);
-int		key_release(int key, t_data *data);
-void	movement_player(t_data *data);
-void	display_minimap(t_data *data, int x, int y);
+
+void	throw_rays(t_data *data);
 
 /*********************************   INIT   *********************************/
 
 int		init_colors(t_data *data);
-int		init_textures_filename(t_data *data);
-int		init_windows(t_data *data);
-int		init_pos_player(t_data *data);
-void	init_textures_adress(t_data *data);
-void	init_data_game(t_data *data, t_parser *parser);
-void	init_ray(t_data	*data, int x);
-void	init_pos_directions(t_data *data);
-void	init_key_press(t_data *data);
 
+void	init_pos_directions(t_data *data);
+
+int		init_pos_player(t_data *data);
+
+void	init_ray(t_data	*data, int x);
+
+void	init_textures_adress(t_data *data);
+
+int		init_textures_filename(t_data *data);
+
+void	init_key_press(t_data *data);
+int		init_windows(t_data *data);
+
+void	init_data_game(t_data *data, t_parser *parser);
 
 /********************************   PARSING   ********************************/
 
