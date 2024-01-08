@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:53:17 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/08 10:26:53 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/08 11:00:58 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ int	check_error_textures(t_parser *parser, char *str)
 	dest = copy_from(str, 't');
 	if (!dest)
 	{
-		err("Error\nBad texture2\n");
+		err("Error\nBad parsing\n");
 		free_tab(parser->tab);
 		exit(1);
 	}
 	if (access(dest, F_OK) != 0)
 	{
-		err("Error\nBad texture\n");
+		err("Error\nBad parsing\n");
 		free(dest);
 		free_tab(parser->tab);
 		exit(1);
@@ -61,7 +61,7 @@ int	set_texture(t_parser *parser, char *line,
 	{
 		if (validate_line(line))
 		{
-			err("Error\nBad texture\n");
+			err("Error\nBad parsing\n");
 			free_tab(parser->tab);
 			exit(1);
 		}
@@ -93,7 +93,7 @@ int	verif_textures_wall(t_parser *parser)
 	else
 	{
 		free_tab(parser->tab);
-		return (err("Error\nBad texture\n"));
+		return (err("Error\nBad parsing\n"));
 	}
 }
 
@@ -117,7 +117,7 @@ int	verif_parameters(t_parser *parser)
 		{
 			free_tab(split_line);
 			free_tab(parser->tab);
-			return (err("Error\nInvalid parameter\n"));
+			return (err("Error\nBad parsing\n"));
 		}
 		free_tab(split_line);
 		i++;

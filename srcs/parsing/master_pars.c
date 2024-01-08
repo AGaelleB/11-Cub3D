@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:40:13 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/08 10:11:06 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/08 11:01:54 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	master_verif_args(int ac, char **av)
 {
 	if (ac != 2)
-		return (err("Error\nInvalid number of arguments\n"));
+		return (err("Error\nBad parsing\n"));
 	(void)ac;
 	if (verif_extensions(av[1], av) != 0)
 		return (1);
@@ -42,26 +42,26 @@ int	master_verif_maps(t_parser *parser)
 	if (convert_tab_in_map(parser))
 	{
 		free_tab(parser->tab);
-		return (err("Error\nEmpty line in the map\n"));
+		return (err("Error\nBad parsing\n"));
 	}
 	parms_map_size(parser);
 	if (verif_char(parser->map) || verif_pos_player(parser))
 	{
 		free_tab(parser->tab);
 		free_tab(parser->map);
-		return (err("Error\nInvalid char in the map\n"));
+		return (err("Error\nBad parsing\n"));
 	}
 	if (verif_zero_close(parser))
 	{
 		free_tab(parser->tab);
 		free_tab(parser->map);
-		return (err("Error\nA zero isn't closed\n"));
+		return (err("Error\nBad parsing\n"));
 	}
 	if (verif_space_close(parser))
 	{
 		free_tab(parser->tab);
 		free_tab(parser->map);
-		return (err("Error\nThe map isn't closed\n"));
+		return (err("Error\nBad parsing\n"));
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 10:14:28 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/22 11:21:00 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/08 11:03:14 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	check_empty_line_at_end(char *str)
 		i++;
 	if (str[i] == '\0' && str[i - 1] == '\n')
 	{
-		err("Error\nEmpty line at the end of the map\n");
+		err("Error\nBad parsing\n");
 		free(str);
 		exit(1);
 	}
@@ -63,7 +63,7 @@ int	check_empty_line_in_map(char *str)
 	while (i > 0 && str[++i])
 	{
 		if (str[i] == '\n' && str[i + 1] == '\n')
-			err("Error\nEmpty line in map\n");
+			err("Error\nBad parsing\n");
 		if (str[i] == '\n' && str[i + 1] == '\n')
 		{
 			free(str);
@@ -81,7 +81,7 @@ int	check_no_map(char *str)
 	while (i > 0 && str[++i])
 	{
 		if (str[i] == '\n' && str[i + 1] == '\n')
-			err("Error\nEmpty line in map\n");
+			err("Error\nBad parsing\n");
 		if (str[i] == '\n' && str[i + 1] == '\n')
 		{
 			free(str);
