@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_press.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 17:49:57 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/08 10:04:16 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/10 14:58:58 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@ int	key_press(int key, t_data *data)
 		free_all(data);
 		exit(0);
 	}
+	if (key == XK_c)
+		data->keys.mouse_on = 1;
+	if (key == XK_v)
+		data->keys.mouse_on = 0;
 	return (0);
 }
 

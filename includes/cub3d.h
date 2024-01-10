@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/08 10:44:32 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/10 15:12:33 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
 
-# define SPEED_MOVE 0.015
-# define SPEED_ROT 0.01
+# define SPEED_MOVE 0.025
+# define SPEED_ROT 0.015
 
 # define INFINITY_VALUE 1e30
 # define MAX_COLOR_VALUE 0xFF
@@ -66,6 +66,8 @@ typedef struct s_keys
 	int			rot_right;
 	int			mouse_rot_right;
 	int			mouse_rot_left;
+	int			mouse_x;
+	int			mouse_on;
 }	t_keys;
 
 typedef struct s_colors

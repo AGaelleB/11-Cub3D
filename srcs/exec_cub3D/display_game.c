@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_game.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:57:41 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/08 09:57:07 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/10 14:56:01 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	display_game(t_data *data)
 		x++;
 	}
 	display_minimap(data, 0, 0);
+	if (data->keys.mouse_on == 0)
+		mlx_mouse_move(data->img_blank->mlx, data->img_blank->window, WIDTH / 2, HEIGHT / 2);
 	mlx_put_image_to_window(data->img_blank->mlx, data->img_blank->window,
 		data->img_blank->img_ptr, 0, 0);
 	return (0);

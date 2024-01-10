@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_in_tab.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 10:14:28 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/08 11:03:14 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/10 13:22:41 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,6 @@ int	find_map_start(char *str)
 	while (str[i] == '\n')
 		i++;
 	return (i);
-}
-
-int	check_empty_line_at_end(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	if (str[i] == '\0' && str[i - 1] == '\n')
-	{
-		err("Error\nBad parsing\n");
-		free(str);
-		exit(1);
-	}
-	return (0);
 }
 
 int	check_empty_line_in_map(char *str)
@@ -99,7 +83,6 @@ void	ft_put_in_tab(char *map, t_parser *parser)
 	if (str == NULL)
 		exit(1);
 	check_empty_line_in_map(str);
-	check_empty_line_at_end(str);
 	parser->tab = ft_split(str, '\n');
 	if (parser->tab == NULL)
 		return ;
