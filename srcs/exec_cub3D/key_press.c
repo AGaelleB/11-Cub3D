@@ -6,7 +6,7 @@
 /*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 17:49:57 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/10 14:58:58 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/11 09:37:58 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,10 @@ int	key_press(int key, t_data *data)
 		help_key_press(key, data);
 	if (key == KEY_D)
 		data->keys.d = 1;
+	if (key == KEY_C)
+		data->mouse_on = 1;
+	if (key == KEY_V)
+		data->mouse_on = 0;
 	if (key == KEY_LEFT)
 		data->keys.rot_left = 1;
 	if (key == KEY_RIGHT)
@@ -55,10 +59,6 @@ int	key_press(int key, t_data *data)
 		free_all(data);
 		exit(0);
 	}
-	if (key == XK_c)
-		data->keys.mouse_on = 1;
-	if (key == XK_v)
-		data->keys.mouse_on = 0;
 	return (0);
 }
 

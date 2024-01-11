@@ -6,7 +6,7 @@
 /*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/10 15:12:33 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/11 09:54:23 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <sys/stat.h>
+# include <sys/time.h>
 # include <unistd.h>
 # include <stdbool.h>
 
@@ -47,6 +48,8 @@
 # define KEY_A 97
 # define KEY_S 115
 # define KEY_D 100
+# define KEY_C 99
+# define KEY_V 118
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
 
@@ -67,7 +70,6 @@ typedef struct s_keys
 	int			mouse_rot_right;
 	int			mouse_rot_left;
 	int			mouse_x;
-	int			mouse_on;
 }	t_keys;
 
 typedef struct s_colors
@@ -143,6 +145,7 @@ typedef struct s_data
 	int			pos_player_x;
 	int			pos_player_y;
 	int			line_height;
+	int			mouse_on;
 	t_parser	*parser;
 	t_img		*img_blank;
 	t_img		*texture_north;
