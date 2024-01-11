@@ -4,6 +4,7 @@ WE textures/west.xpm
 EA                 textures/east.xpm
 F 151,155,166
 C 141,229,249
+SO textures/south.xpm
 
 1111111111111
 100000N000001
