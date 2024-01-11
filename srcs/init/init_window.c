@@ -6,7 +6,7 @@
 /*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:55:31 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/11 09:42:42 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/11 13:35:23 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	init_key_press(t_data *data)
 	data->keys.mouse_rot_right = 0;
 	data->keys.mouse_rot_left = 0;
 	data->keys.mouse_x = 0;
-	data->mouse_on = 1;
+	data->mouse_on = 1; //0 ?
 }
 
 int	init_windows(t_data *data)

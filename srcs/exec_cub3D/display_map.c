@@ -19,7 +19,7 @@ void	put_x10(t_data *data, int x, int y, int color)
 
 	tmp_x = x;
 	tmp_y = y;
-	while (y < (tmp_y + 6))
+	while (y < (tmp_y + 6)) // +6 ??
 	{
 		x = tmp_x;
 		while (x < (tmp_x + 6))

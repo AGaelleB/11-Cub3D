@@ -6,7 +6,7 @@
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:55:55 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/11 11:33:49 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/08 10:03:55 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,7 @@ void	movement_player_rotation_right(t_data *data)
 	double	old_dir_x;
 	double	old_plane_x;
 
-	if (data->keys.rot_right == 1
-		|| (data->keys.mouse_rot_right == 1 && data->mouse_on == 0))
+	if (data->keys.rot_right == 1 || data->keys.mouse_rot_right == 1)
 	{
 		old_dir_x = data->game->dir_x;
 		data->game->dir_x = data->game->dir_x * cos(-SPEED_ROT)
@@ -85,8 +84,7 @@ void	movement_player_rotation_left(t_data *data)
 	double	old_dir_x;
 	double	old_plane_x;
 
-	if (data->keys.rot_left == 1
-		|| (data->keys.mouse_rot_left == 1 && data->mouse_on == 0))
+	if (data->keys.rot_left == 1 || data->keys.mouse_rot_left == 1)
 	{
 		old_dir_x = data->game->dir_x;
 		data->game->dir_x = data->game->dir_x * cos(SPEED_ROT)

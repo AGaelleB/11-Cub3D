@@ -6,11 +6,14 @@
 /*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:39:45 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/11 09:54:01 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/11 13:36:57 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+#include <X11/X.h>
+#include <sys/time.h>
 
 int	close_window(t_data *data)
 {
@@ -47,8 +50,7 @@ void	exec_game(t_parser *parser)
 		return ;
 	init_textures_adress(&data);
 	mlx_hook(data.img_blank->window, KeyPress, KeyPressMask, key_press, &data);
-	mlx_hook(data.img_blank->window, MotionNotify, PointerMotionMask,
-		mouse_move_bis, &data);
+	mlx_hook(data.img_blank->window, MotionNotify, PointerMotionMask, mouse_move_bis, &data);
 	mlx_hook(data.img_blank->window,
 		KeyRelease, KeyReleaseMask, key_release, &data);
 	mlx_hook(data.img_blank->window, 17, 0, close_window, &data);

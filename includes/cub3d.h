@@ -6,7 +6,7 @@
 /*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/11 09:54:23 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/11 13:32:48 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <sys/stat.h>
-# include <sys/time.h>
 # include <unistd.h>
 # include <stdbool.h>
 
@@ -53,8 +52,8 @@
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
 
-# define SPEED_MOVE 0.025
-# define SPEED_ROT 0.015
+# define SPEED_MOVE 0.015
+# define SPEED_ROT 0.01
 
 # define INFINITY_VALUE 1e30
 # define MAX_COLOR_VALUE 0xFF
