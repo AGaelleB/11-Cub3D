@@ -6,7 +6,7 @@
 /*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/11 14:11:59 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/11 14:58:57 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@
 
 # define COLOR_BLACK 0x000000 
 # define COLOR_BRICK 0xa62c01
+# define COLOR_FLOOR 0xEAE8B4
 
 # define KEY_ESCAPE 65307
 # define KEY_W 119
