@@ -6,7 +6,7 @@
 /*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:57:39 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/11 15:19:33 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/11 16:08:50 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,26 @@ int	check_tab_color(t_parser *parser, char *dest, char **tab_color)
 	return (0);
 }
 
+int check_comma(t_parser *parser, char *dest, char **tab_color)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (dest[i] != '\0')
+	{
+		if (dest[i] == ',')
+		{
+			count++;
+			if (count > 2)
+				free_error_set_color(dest, parser, tab_color);
+		}
+		i++;
+	}
+	return (0);
+}
+
 int	check_error_numbers(t_parser *parser, char *str)
 {
 	char	*dest;
@@ -64,6 +84,7 @@ int	check_error_numbers(t_parser *parser, char *str)
 	tab_color = ft_split(dest, ',');
 	i = 0;
 	check_tab_color(parser, dest, tab_color);
+	check_comma(parser, dest, tab_color);
 	free(dest);
 	free_tab(tab_color);
 	return (0);
@@ -84,6 +105,7 @@ int	set_color(t_parser *parser, char *line,
 		}
 		if (check_error_numbers(parser, line) == 0)
 			(*flag)++;
+		
 	}
 	return (1);
 }
