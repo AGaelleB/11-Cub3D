@@ -3,23 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   pars_floor_and_ceiling.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:57:39 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/11 16:08:50 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/11 17:33:16 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
-void	free_error_set_color(char *dest, t_parser *parser, char **tab_color)
-{
-	err("Error\nBad color\n");
-	free(dest);
-	free_tab(parser->tab);
-	free_tab(tab_color);
-	exit(1);
-}
 
 int	check_tab_color(t_parser *parser, char *dest, char **tab_color)
 {
@@ -45,7 +36,7 @@ int	check_tab_color(t_parser *parser, char *dest, char **tab_color)
 	return (0);
 }
 
-int check_comma(t_parser *parser, char *dest, char **tab_color)
+int	check_comma(t_parser *parser, char *dest, char **tab_color)
 {
 	int	i;
 	int	count;
@@ -105,7 +96,6 @@ int	set_color(t_parser *parser, char *line,
 		}
 		if (check_error_numbers(parser, line) == 0)
 			(*flag)++;
-		
 	}
 	return (1);
 }

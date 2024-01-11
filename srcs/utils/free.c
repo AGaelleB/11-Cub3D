@@ -1,16 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_struct.c                                      :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:07:38 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/08 10:37:17 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/11 17:34:09 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+void	free_error_set_color(char *dest, t_parser *parser, char **tab_color)
+{
+	err("Error\nBad color\n");
+	free(dest);
+	free_tab(parser->tab);
+	free_tab(tab_color);
+	exit(1);
+}
 
 void	free_tab(char **tab)
 {

@@ -29,14 +29,18 @@ for map_file in $MAPS_FOLDER/*.cub; do
 	# Exécution du programme et capture de la sortie
 	output=$(./cub3D "$map_file" 2>&1)
 
-	# Vérifier si la sortie contient "Error Bad parsing"
+	# Vérifier si la sortie contient "Error"
 	if echo "$output" | grep -q "Error"; then
 		echo -e "${RED}Message error detected ! 😱 ${RESET}"
+		echo -e "${YELLOW}Error message from program:${RESET}"
+		echo -e "----------"
+		echo -e "$output"
+		echo -e "----------\n"
 	else
 		echo -e "${GREEN}The map is valid ! 😎${RESET}"
 	fi
 
-	echo -e "Finished testing $map_file"
+	echo -e "${CYAN}Finished testing $map_file${RESET}"
 done
 
 print_separator

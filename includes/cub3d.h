@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/11 14:58:57 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/11 17:33:51 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,6 +225,7 @@ void	ft_put_in_tab(char *map, t_parser *parser);
 
 /********************************   UTILS   *********************************/
 
+void	free_error_set_color(char *dest, t_parser *parser, char **tab_color);
 void	free_tab(char **tab);
 void	free_all(t_data *data);
 
