@@ -6,7 +6,7 @@
 /*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 10:14:28 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/11 13:38:49 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:14:14 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	check_empty_line_in_map(char *str)
 	while (i > 0 && str[++i])
 	{
 		if (str[i] == '\n' && str[i + 1] == '\n')
-			err("Error\nBad parsing\n");
+			err("Error\nEmpty line\n");
 		if (str[i] == '\n' && str[i + 1] == '\n')
 		{
 			free(str);
@@ -65,7 +65,7 @@ int	check_no_map(char *str)
 	while (i > 0 && str[++i])
 	{
 		if (str[i] == '\n' && str[i + 1] == '\n')
-			err("Error\nBad parsing\n");
+			err("Error\nNo valid map\n");
 		if (str[i] == '\n' && str[i + 1] == '\n')
 		{
 			free(str);

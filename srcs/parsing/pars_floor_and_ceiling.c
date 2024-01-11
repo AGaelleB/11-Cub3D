@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pars_floor_and_ceiling.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:57:39 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/08 11:02:13 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:19:33 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_error_set_color(char *dest, t_parser *parser, char **tab_color)
 {
-	err("Error\nBad parsing\n");
+	err("Error\nBad color\n");
 	free(dest);
 	free_tab(parser->tab);
 	free_tab(tab_color);
@@ -57,7 +57,7 @@ int	check_error_numbers(t_parser *parser, char *str)
 	dest = copy_from(str, str[i]);
 	if (!dest)
 	{
-		err("Error\nBad parsing\n");
+		err("Error\nDuring copy\n");
 		free_tab(parser->tab);
 		exit(1);
 	}
@@ -78,7 +78,7 @@ int	set_color(t_parser *parser, char *line,
 			return (1);
 		if (validate_line(line))
 		{
-			err("Error\nBad parsing\n");
+			err("Error\nInvalid line\n");
 			free_tab(parser->tab);
 			exit(1);
 		}
@@ -107,7 +107,7 @@ int	verif_floor_and_ceiling(t_parser *parser)
 	else
 	{
 		free_tab(parser->tab);
-		return (err("Error\nBad parsing\n"));
+		return (err("Error\nBad color\n"));
 	}
 	return (0);
 }
