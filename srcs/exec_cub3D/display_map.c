@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:18:55 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/08 09:56:41 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/11 14:07:56 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	put_x10(t_data *data, int x, int y, int color)
 
 	tmp_x = x;
 	tmp_y = y;
-	while (y < (tmp_y + 6)) // +6 ??
+	while (y < (tmp_y + 6))
 	{
 		x = tmp_x;
 		while (x < (tmp_x + 6))

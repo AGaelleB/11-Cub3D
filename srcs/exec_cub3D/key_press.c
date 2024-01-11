@@ -6,7 +6,7 @@
 /*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 17:49:57 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/11 13:31:49 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/11 14:06:18 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,7 @@ int	key_press(int key, t_data *data)
 	if (key == KEY_D)
 		data->keys.d = 1;
 	if (key == KEY_C)
-		data->mouse_on = 1;
-	if (key == KEY_V)
-		data->mouse_on = 0;
+		data->mouse_on = !data->mouse_on;
 	if (key == KEY_LEFT)
 		data->keys.rot_left = 1;
 	if (key == KEY_RIGHT)

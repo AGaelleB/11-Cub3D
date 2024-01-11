@@ -6,7 +6,7 @@
 /*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/11 13:32:48 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/11 14:11:59 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <sys/stat.h>
-# include <unistd.h>
+# include <sys/time.h>
 # include <stdbool.h>
+# include <unistd.h>
 
 # include "../includes/ft_printf.h"
 # include "../includes/get_next_line.h"
@@ -48,7 +49,6 @@
 # define KEY_S 115
 # define KEY_D 100
 # define KEY_C 99
-# define KEY_V 118
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
 
@@ -144,7 +144,7 @@ typedef struct s_data
 	int			pos_player_x;
 	int			pos_player_y;
 	int			line_height;
-	int			mouse_on;
+	bool		mouse_on;
 	t_parser	*parser;
 	t_img		*img_blank;
 	t_img		*texture_north;
