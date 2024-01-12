@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pars_textures.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:53:17 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/11 15:12:52 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:52:08 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_error_textures(t_parser *parser, char *str)
 		free_tab(parser->tab);
 		exit(1);
 	}
-	if (access(dest, F_OK) != 0)
+	if (access(dest, F_OK) != 0 || access(dest, R_OK) != 0)
 	{
 		err("Error\nBad texture\n");
 		free(dest);
