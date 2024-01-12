@@ -2,8 +2,8 @@ NO textures/north.xpm
 SO textures/south.xpm
 WE textures/west.xpm
 EA textures/east.xpm
-F 110,153,15 
-C 255,255,255
+F 110,153,15
+C 255,255,25
 
         1111111111111111011111111
         1000000000000000000000001
