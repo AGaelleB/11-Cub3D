@@ -6,7 +6,7 @@
 /*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:39:45 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/11 14:08:37 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/12 14:53:37 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,7 @@ void	exec_game(t_parser *parser)
 {
 	t_data	data;
 
-	init_data_game(&data, parser);
-	if (init_windows(&data))
+	if (init_data_game(&data, parser) || init_windows(&data))
 		return ;
 	init_textures_adress(&data);
 	mlx_hook(data.img_blank->window, KeyPress, KeyPressMask, key_press, &data);

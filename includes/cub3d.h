@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/11 17:33:51 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/12 14:54:19 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
 
-# define SPEED_MOVE 0.015
-# define SPEED_ROT 0.01
+# define SPEED_MOVE 0.009
+# define SPEED_ROT 0.009
 
 # define INFINITY_VALUE 1e30
 # define MAX_COLOR_VALUE 0xFF
@@ -197,7 +197,7 @@ int		init_textures_filename(t_data *data);
 void	init_key_press(t_data *data);
 int		init_windows(t_data *data);
 
-void	init_data_game(t_data *data, t_parser *parser);
+int		init_data_game(t_data *data, t_parser *parser);
 
 /********************************   PARSING   ********************************/
 
@@ -236,6 +236,7 @@ char	*ft_read_and_join(char *map);
 
 int		verif_directory(char *str);
 int		verif_extensions(char *str, char **av);
+char	*trim_texture_path(char *str);
 char	*trim_start(char *str);
 int		verif_char(char **tab);
 

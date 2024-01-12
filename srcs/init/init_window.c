@@ -6,7 +6,7 @@
 /*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:55:31 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/11 14:05:27 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/12 15:00:36 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ int	init_windows(t_data *data)
 		return (1);
 	data->img_blank->mlx = mlx_init();
 	if (!data->img_blank->mlx)
-		err("Error\nInit mlx failed\n");
+		return (err("Error\nInit mlx failed\n"));
 	data->img_blank->window = mlx_new_window(data->img_blank->mlx,
 			WIDTH, HEIGHT, "cub3D");
 	if (!data->img_blank->window)
-		err("Error\nInit window failed\n");
+		return (err("Error\nInit window failed\n"));
 	data->img_blank->img_ptr = mlx_new_image(data->img_blank->mlx,
 			WIDTH, HEIGHT);
 	data->img_blank->data_addr = mlx_get_data_addr(data->img_blank->img_ptr,

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 11:01:18 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/22 14:45:38 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/12 14:23:39 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,21 @@ int	verif_extensions(char *str, char **av)
 	return (1);
 }
 
+char	*trim_texture_path(char *str)
+{
+	int	i;
+
+	i = 2;
+	ft_memset(str, ' ', 2);
+	while (str[i] == ' ' || str[i] == '\t')
+		i++;
+	return (trim_start(str));
+}
+
 char	*trim_start(char *str)
 {
 	while (*str == ' ' || *str == '\t')
-	{
 		str++;
-	}
 	return (str);
 }
 

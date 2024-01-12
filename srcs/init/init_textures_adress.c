@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_textures_adress.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 13:43:50 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/08 10:40:16 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/12 15:03:19 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	init_textures_adress_north(t_data *data)
 	if (!data->texture_north->img_ptr)
 	{
 		err("Error\nNorth mlx_xpm_file_to_image failed\n");
-		return ;
+		free_all(data);
+		exit(1);
 	}
 	data->texture_north->data_addr
 		= mlx_get_data_addr(data->texture_north->img_ptr,
@@ -41,7 +42,8 @@ void	init_textures_adress_south(t_data *data)
 	if (!data->texture_south->img_ptr)
 	{
 		err("Error\nSouth mlx_xpm_file_to_image failed\n");
-		return ;
+		free_all(data);
+		exit(1);
 	}
 	data->texture_south->data_addr
 		= mlx_get_data_addr(data->texture_south->img_ptr,
@@ -60,7 +62,8 @@ void	init_textures_adress_west(t_data *data)
 	if (!data->texture_west->img_ptr)
 	{
 		err("Error\nWest mlx_xpm_file_to_image failed\n");
-		return ;
+		free_all(data);
+		exit(1);
 	}
 	data->texture_west->data_addr
 		= mlx_get_data_addr(data->texture_west->img_ptr,
@@ -79,7 +82,8 @@ void	init_textures_adress_east(t_data *data)
 	if (!data->texture_east->img_ptr)
 	{
 		err("Error\nEast mlx_xpm_file_to_image failed\n");
-		return ;
+		free_all(data);
+		exit(1);
 	}
 	data->texture_east->data_addr
 		= mlx_get_data_addr(data->texture_east->img_ptr,

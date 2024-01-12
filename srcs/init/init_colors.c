@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_colors.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 19:10:36 by abonnefo          #+#    #+#             */
-/*   Updated: 2023/12/26 17:07:13 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/12 14:26:26 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,22 @@ void	add_colors(t_data *data, char **tab, char c)
 int	init_colors(t_data *data)
 {
 	int		i;
+	char	*trimmed_line;
 	char	**color_values;
 
 	i = 0;
 	while (data->valid_param[i])
 	{
-		if (ft_strncmp_cub3d(data->valid_param[i], "F ", 2) == 0)
+		trimmed_line = trim_start(data->valid_param[i]);
+		if (ft_strncmp_cub3d(trimmed_line, "F ", 2) == 0)
 		{
-			color_values = ft_split(data->valid_param[i] + 2, ',');
+			color_values = ft_split(trimmed_line + 2, ',');
 			add_colors(data, color_values, 'F');
 			free_tab(color_values);
 		}
-		else if (ft_strncmp_cub3d(data->valid_param[i], "C ", 2) == 0)
+		else if (ft_strncmp_cub3d(trimmed_line, "C ", 2) == 0)
 		{
-			color_values = ft_split(data->valid_param[i] + 2, ',');
+			color_values = ft_split(trimmed_line + 2, ',');
 			add_colors(data, color_values, 'C');
 			free_tab(color_values);
 		}
