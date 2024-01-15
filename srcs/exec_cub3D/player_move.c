@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_move.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:55:55 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/11 14:06:55 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/15 09:33:51 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	movement_player_up_down(t_data *data)
 {
-	if (data->keys.w == 1)
+	if (data->keys.w == 1 && data->keys.s == 0)
 	{
 		if (data->valid_map[(int)(data->game->pos_x + data->game->dir_x
 				* SPEED_MOVE)][(int)(data->game->pos_y)] != '1')
@@ -23,7 +23,7 @@ void	movement_player_up_down(t_data *data)
 			+ data->game->dir_y * SPEED_MOVE)] != '1')
 			data->game->pos_y += data->game->dir_y * SPEED_MOVE;
 	}
-	else if (data->keys.s == 1)
+	else if (data->keys.s == 1 && data->keys.w == 0)
 	{
 		if (data->valid_map[(int)(data->game->pos_x - data->game->dir_x
 				* SPEED_MOVE)][(int)(data->game->pos_y)] != '1')
@@ -36,7 +36,7 @@ void	movement_player_up_down(t_data *data)
 
 void	movement_player_right_left(t_data *data)
 {
-	if (data->keys.d == 1)
+	if (data->keys.d == 1 && data->keys.a == 0)
 	{
 		if (data->valid_map[(int)(data->game->pos_x + data->game->plan_x
 				* SPEED_MOVE)]
@@ -47,7 +47,7 @@ void	movement_player_right_left(t_data *data)
 					* SPEED_MOVE)] != '1')
 			data->game->pos_y += data->game->plan_y * SPEED_MOVE;
 	}
-	else if (data->keys.a == 1)
+	else if (data->keys.a == 1 && data->keys.d == 0)
 	{
 		if (data->valid_map[(int)(data->game->pos_x - data->game->plan_x
 				* SPEED_MOVE)]

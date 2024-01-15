@@ -3,47 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   key_press.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 17:49:57 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/11 14:06:18 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/15 09:34:29 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	help_key_press(int key, t_data *data)
-{
-	if (key == KEY_W)
-	{
-		if (data->keys.s == 1)
-		{
-			data->keys.w = 0;
-			data->keys.s = 0;
-		}
-		else
-			data->keys.w = 1;
-	}
-	else if (key == KEY_S)
-	{
-		if (data->keys.w == 1)
-		{
-			data->keys.w = 0;
-			data->keys.s = 0;
-		}
-		else
-			data->keys.s = 1;
-	}
-}
-
 int	key_press(int key, t_data *data)
 {
 	if (key == KEY_W)
-		help_key_press(key, data);
+		data->keys.w = 1;
 	if (key == KEY_A)
 		data->keys.a = 1;
 	if (key == KEY_S)
-		help_key_press(key, data);
+		data->keys.s = 1;
 	if (key == KEY_D)
 		data->keys.d = 1;
 	if (key == KEY_C)
