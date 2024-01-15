@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_textures_filename.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:55:15 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/12 14:23:03 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/15 09:37:45 by abonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	init_textures_filename_north(t_data *data)
 	}
 	return (0);
 }
+
 int	init_textures_filename_south(t_data *data)
 {
 	int		i;
@@ -57,7 +58,6 @@ int	init_textures_filename_south(t_data *data)
 	return (0);
 }
 
-
 int	init_textures_filename_east(t_data *data)
 {
 	int		i;
@@ -68,7 +68,7 @@ int	init_textures_filename_east(t_data *data)
 	while (data->valid_param[i])
 	{
 		trimmed_line = trim_start(data->valid_param[i]);
-	 	if (ft_strncmp_cub3d(trimmed_line, "EA ", 3) == 0)
+		if (ft_strncmp_cub3d(trimmed_line, "EA ", 3) == 0)
 		{
 			texture_path = trim_texture_path(trimmed_line);
 			data->texture_east = ft_calloc(1, sizeof(t_img));
