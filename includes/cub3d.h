@@ -6,7 +6,7 @@
 /*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/12 14:54:19 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/16 10:15:19 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,6 +225,10 @@ void	ft_put_in_tab(char *map, t_parser *parser);
 
 /********************************   UTILS   *********************************/
 
+void	free_no_mlx(t_data *data);
+
+void	free_texture_filename_ea_we(t_data *data);
+void	free_texture_filename_no_so(t_data *data);
 void	free_error_set_color(char *dest, t_parser *parser, char **tab_color);
 void	free_tab(char **tab);
 void	free_all(t_data *data);
