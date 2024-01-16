@@ -6,7 +6,7 @@
 /*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/16 10:48:12 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/16 11:58:28 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@
 
 # define SPEED_MOVE 0.009
 # define SPEED_ROT 0.009
+# define SPEED_MOVE_DIAG 0.0045
 
 # define INFINITY_VALUE 1e30
 # define MAX_COLOR_VALUE 0xFF

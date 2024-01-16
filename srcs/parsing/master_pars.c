@@ -6,7 +6,7 @@
 /*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:40:13 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/12 10:22:40 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/16 11:48:44 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,14 @@ int	master_verif_textures(char *map, t_parser *parser)
 	return (0);
 }
 
+void	free_exit(t_parser *parser, char *str)
+{
+	free_tab(parser->tab);
+	free_tab(parser->map);
+	err(str);
+	exit(1);
+}
+
 int	master_verif_maps(t_parser *parser)
 {
 	if (convert_tab_in_map(parser))
@@ -45,24 +53,12 @@ int	master_verif_maps(t_parser *parser)
 		return (err("Error\nInvalid map\n"));
 	}
 	parms_map_size(parser);
-	if (verif_zero_close(parser))
-	{
-		free_tab(parser->tab);
-		free_tab(parser->map);
-		return (err("Error\nMap isn't close\n"));
-	}
-	if (verif_char(parser->map) || verif_pos_player(parser))
-	{
-		free_tab(parser->tab);
-		free_tab(parser->map);
-		return (err("Error\nInvalid char\n"));
-	}
-	if (verif_space_close(parser))
-	{
-		free_tab(parser->tab);
-		free_tab(parser->map);
-		return (err("Error\nMap isn't close\n"));
-	}
+	if (verif_zero_close(parser) || verif_space_close(parser))
+		free_exit(parser, "Error\nMap isn't close\n");
+	if (verif_char(parser->map))
+		free_exit(parser, "Error\nInvalid char\n");
+	if (verif_pos_player(parser))
+		free_exit(parser, "Error\nInvalid position player\n");
 	return (0);
 }
 

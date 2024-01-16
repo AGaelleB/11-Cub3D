@@ -6,7 +6,7 @@
 /*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:57:39 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/12 14:10:17 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/16 11:50:56 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	set_color(t_parser *parser, char *line,
 			return (1);
 		if (validate_line(line))
 		{
-			err("Error\nInvalid line\n");
+			err("Error\nInvalid color line\n");
 			free_tab(parser->tab);
 			exit(1);
 		}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_move.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 17:55:55 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/15 09:33:51 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/16 11:57:21 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,28 @@
 
 void	movement_player_up_down(t_data *data)
 {
+	double	speed;
+
+	speed = SPEED_MOVE;
+	if ((data->keys.w || data->keys.s) && (data->keys.a || data->keys.d))
+		speed = SPEED_MOVE_DIAG;
 	if (data->keys.w == 1 && data->keys.s == 0)
 	{
 		if (data->valid_map[(int)(data->game->pos_x + data->game->dir_x
-				* SPEED_MOVE)][(int)(data->game->pos_y)] != '1')
-			data->game->pos_x += data->game->dir_x * SPEED_MOVE;
+				* speed)][(int)(data->game->pos_y)] != '1')
+			data->game->pos_x += data->game->dir_x * speed;
 		if (data->valid_map[(int)(data->game->pos_x)][(int)(data->game->pos_y
-			+ data->game->dir_y * SPEED_MOVE)] != '1')
-			data->game->pos_y += data->game->dir_y * SPEED_MOVE;
+				+ data->game->dir_y * speed)] != '1')
+			data->game->pos_y += data->game->dir_y * speed;
 	}
 	else if (data->keys.s == 1 && data->keys.w == 0)
 	{
 		if (data->valid_map[(int)(data->game->pos_x - data->game->dir_x
-				* SPEED_MOVE)][(int)(data->game->pos_y)] != '1')
-			data->game->pos_x -= data->game->dir_x * SPEED_MOVE;
+				* speed)][(int)(data->game->pos_y)] != '1')
+			data->game->pos_x -= data->game->dir_x * speed;
 		if (data->valid_map[(int)(data->game->pos_x)][(int)(data->game->pos_y
-			- data->game->dir_y * SPEED_MOVE)] != '1')
-			data->game->pos_y -= data->game->dir_y * SPEED_MOVE;
+				- data->game->dir_y * speed)] != '1')
+			data->game->pos_y -= data->game->dir_y * speed;
 	}
 }
 

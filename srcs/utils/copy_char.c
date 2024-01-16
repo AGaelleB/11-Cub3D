@@ -6,7 +6,7 @@
 /*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 10:43:09 by bfresque          #+#    #+#             */
-/*   Updated: 2024/01/16 10:45:35 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/16 11:57:47 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*copy_after_space(char *str)
 {
-	char *pos;
+	char	*pos;
 
 	str += 2;
 	while (*str && *str == ' ')
