@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:40:20 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/08 10:14:08 by abonnefo         ###   ########.fr       */
+/*   Updated: 2024/01/16 10:42:44 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,26 +23,6 @@ int	err(char *str)
 		i++;
 	}
 	return (1);
-}
-
-char	*copy_from(char *str, char c_start)
-{
-	char	*pos;
-	char	*dest;
-	int		size;
-
-	pos = ft_strchr(str, c_start);
-	if (pos != NULL)
-	{
-		size = ft_strlen(pos);
-		dest = malloc(sizeof(char) * (size + 1));
-		if (!dest)
-			return (NULL);
-		ft_strcpy(dest, pos);
-		return (dest);
-	}
-	else
-		return (NULL);
 }
 
 int	find_start_of_map(t_parser *parser)

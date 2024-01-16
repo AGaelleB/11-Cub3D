@@ -1,25 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pars_begin_params.c                                :+:      :+:    :+:   */
+/*   copy_char.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 15:21:16 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/16 10:47:52 by bfresque         ###   ########.fr       */
+/*   Created: 2024/01/16 10:43:09 by bfresque          #+#    #+#             */
+/*   Updated: 2024/01/16 10:45:35 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int	begin_digit(char *line)
+char	*copy_after_space(char *str)
 {
-	int	i;
+	char *pos;
 
-	i = 1;
-	while (line[i] == ' ')
-		i++;
-	if (ft_isdigit(line[i]) == 0)
-		return (1);
-	return (0);
+	str += 2;
+	while (*str && *str == ' ')
+		str++;
+	pos = ft_strdup(str);
+	return (pos);
+}
+
+char	*copy_from(char *str, char c_start)
+{
+	char	*pos;
+	char	*dest;
+	int		size;
+
+	pos = ft_strchr(str, c_start);
+	if (pos != NULL)
+	{
+		size = ft_strlen(pos);
+		dest = malloc(sizeof(char) * (size + 1));
+		if (!dest)
+			return (NULL);
+		ft_strcpy(dest, pos);
+		return (dest);
+	}
+	else
+		return (NULL);
 }

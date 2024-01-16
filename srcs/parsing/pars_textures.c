@@ -6,19 +6,17 @@
 /*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:53:17 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/12 14:11:15 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/16 10:42:02 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int	check_error_textures(t_parser *parser, char *str)
+int check_error_textures(t_parser *parser, char *str)
 {
-	char	*dest;
+	char *dest;
 
-	if (begin_at_texture(str))
-		return (1);
-	dest = copy_from(str, 't');
+	dest = copy_after_space(str);
 	if (!dest)
 	{
 		err("Error\nBad texture\n");

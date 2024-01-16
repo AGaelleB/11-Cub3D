@@ -6,7 +6,7 @@
 /*   By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:11:23 by abonnefo          #+#    #+#             */
-/*   Updated: 2024/01/16 10:15:19 by bfresque         ###   ########.fr       */
+/*   Updated: 2024/01/16 10:48:12 by bfresque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -245,6 +245,7 @@ char	*trim_start(char *str);
 int		verif_char(char **tab);
 
 int		err(char *str);
+char	*copy_after_space(char *str);
 char	*copy_from(char *str, char c_start);
 int		find_start_of_map(t_parser *parser);
 int		is_all_space(char *input);

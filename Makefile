@@ -6,7 +6,7 @@
 #    By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 10:44:39 by abonnefo          #+#    #+#              #
-#    Updated: 2024/01/16 10:15:50 by bfresque         ###   ########.fr        #
+#    Updated: 2024/01/16 10:43:54 by bfresque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,8 @@ SRCS_PARSING = srcs/parsing/master_pars.c \
 	srcs/parsing/pars_maps.c \
 	srcs/parsing/pars_start_player.c \
 
-SRCS_UTILS = srcs/utils/create_map.c \
+SRCS_UTILS = srcs/utils/copy_char.c \
+	srcs/utils/create_map.c \
 	srcs/utils/free_bis.c \
 	srcs/utils/free.c \
 	srcs/utils/libft_modify.c \
