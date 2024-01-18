@@ -6,7 +6,7 @@
 #    By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 12:06:57 by abonnefo          #+#    #+#              #
-#    Updated: 2023/12/18 11:11:53 by abonnefo         ###   ########.fr        #
+#    Updated: 2024/01/17 12:20:00 by abonnefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,11 +75,8 @@ RM = rm -f
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
-
-bonus: $(NAME) $(OBJS_BONUS)
-	$(AR) $(NAME) $(OBJS_BONUS)
+$(NAME): $(OBJS) $(OBJS_BONUS)
+	$(AR) $(NAME) $(OBJS) $(OBJS_BONUS)
 
 all : $(NAME)
 

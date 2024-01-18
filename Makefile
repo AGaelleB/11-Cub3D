@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bfresque <bfresque@student.42.fr>          +#+  +:+       +#+         #
+#    By: abonnefo <abonnefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 10:44:39 by abonnefo          #+#    #+#              #
-#    Updated: 2024/01/16 10:43:54 by bfresque         ###   ########.fr        #
+#    Updated: 2024/01/18 10:57:40 by abonnefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,16 +16,35 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -g3
 
-FLAGMLX = -L ./includes/minilibx-linux/ -lmlx -lX11 -lXext -g3 -lm
-DIRMLX = ./includes/minilibx-linux/
-MLXFILE = libmlx.a
-MLXEXE = $(addprefix $(DIRMLX), $(MLXFILE)) $(FLAGMLX)
+RED=\033[1;31m
+GREEN=\033[1;32m
+YELLOW=\033[1;33m
+BLUE=\033[1;34m
+MAGENTA=\033[1;35m
+CYAN=\033[1;36m
+RESET=\033[0m
 
 OBJ_DIR_CUB3D = objs_cub3D
 
-OBJ_DIR_LIBFT = libft/obj_libft
+MLX_FLAG = -L ./includes/minilibx-linux/ -lmlx -lX11 -lXext -g3 -lm
+MLX_REPO = https://github.com/42Paris/minilibx-linux.git
+MLX_DIR = ./includes/minilibx-linux/
+MLX_FILE = libmlx.a
+MLX_EXE = $(addprefix $(MLX_DIR), $(MLXFILE)) $(MLX_FLAG)
 
-SRCS_MAIN = srcs/main/main.c \
+LIBFT_DIR = ./libft/
+LIBFT_FILE = libft.a
+LIBFT_EXE = $(addprefix $(LIBFT_DIR), $(LIBFT_FILE))
+
+GNL_DIR = ./libft/GNL/
+GNL_FILE = libftGNL.a
+GNL_EXE = $(addprefix $(GNL_DIR), $(GNL_FILE))
+
+PRINTF_DIR = ./libft/ft_printf/
+PRINTF_FILE = libftprintf.a
+PRINTF_EXE = $(addprefix $(PRINTF_DIR), $(PRINTF_FILE))
+
+SRCS_MAIN = srcs/main/main.c
 
 SRCS_EXEC_CUB3D = srcs/exec_cub3D/cub3d.c \
 	srcs/exec_cub3D/display_game.c \
@@ -62,108 +81,57 @@ SRCS_UTILS = srcs/utils/copy_char.c \
 	srcs/utils/utils_parsing.c \
 	srcs/utils/utils.c \
 
-SRCS_LIBFT = libft/ft_atoi.c \
-	libft/ft_bzero.c \
-	libft/ft_calloc.c \
-	libft/ft_isalnum.c \
-	libft/ft_isalpha.c \
-	libft/ft_isascii.c \
-	libft/ft_isdigit.c \
-	libft/ft_isprint.c \
-	libft/ft_itoa.c \
-	libft/ft_memchr.c \
-	libft/ft_memcmp.c \
-	libft/ft_memcpy.c \
-	libft/ft_memmove.c \
-	libft/ft_memset.c \
-	libft/ft_putchar_fd.c \
-	libft/ft_putendl_fd.c \
-	libft/ft_putnbr_fd.c \
-	libft/ft_putstr_fd.c \
-	libft/ft_split.c \
-	libft/ft_strchr.c \
-	libft/ft_strcpy.c \
-	libft/ft_strdup.c \
-	libft/ft_striteri.c \
-	libft/ft_strjoin.c \
-	libft/ft_strlcat.c \
-	libft/ft_strlcpy.c \
-	libft/ft_strlen.c \
-	libft/ft_strmapi.c \
-	libft/ft_strncmp.c \
-	libft/ft_strnstr.c \
-	libft/ft_strrchr.c \
-	libft/ft_strtrim.c \
-	libft/ft_substr.c \
-	libft/ft_tolower.c \
-	libft/ft_toupper.c \
-
-SRCS_LIBFT_BONUS = libft/ft_lstadd_back.c \
-	libft/ft_lstadd_front.c \
-	libft/ft_lstclear.c \
-	libft/ft_lstdelone.c \
-	libft/ft_lstiter.c \
-	libft/ft_lstlast.c \
-	libft/ft_lstmap.c \
-	libft/ft_lstnew.c \
-	libft/ft_lstsize.c \
-	libft/ft_realloc.c \
-	libft/ft_strncpy.c \
-
-SRCS_GNL = libft/GNL/get_next_line.c \
-	libft/GNL/get_next_line_utils.c \
-
-SRCS_PRINTF = libft/ft_printf/ft_printf.c \
-	libft/ft_printf/ft_print_%.c \
-	libft/ft_printf/ft_print_c.c \
-	libft/ft_printf/ft_print_d.c \
-	libft/ft_printf/ft_print_p.c \
-	libft/ft_printf/ft_print_s.c \
-	libft/ft_printf/ft_print_u.c \
-	libft/ft_printf/ft_print_x.c \
-
-OBJS = $(SRCS_MAIN:%.c=$(OBJ_DIR_CUB3D)/%.o) \
+OBJS =	$(SRCS_MAIN:%.c=$(OBJ_DIR_CUB3D)/%.o) \
 		$(SRCS_EXEC_CUB3D:%.c=$(OBJ_DIR_CUB3D)/%.o) \
 		$(SRCS_INIT:%.c=$(OBJ_DIR_CUB3D)/%.o) \
 		$(SRCS_PARSING:%.c=$(OBJ_DIR_CUB3D)/%.o) \
 		$(SRCS_UTILS:%.c=$(OBJ_DIR_CUB3D)/%.o) \
-		$(SRCS_LIBFT:%.c=$(OBJ_DIR_LIBFT)/%.o) \
-		$(SRCS_LIBFT_BONUS:%.c=$(OBJ_DIR_LIBFT)/%.o) \
-		$(SRCS_GNL:%.c=$(OBJ_DIR_LIBFT)/%.o) \
-		$(SRCS_PRINTF:%.c=$(OBJ_DIR_LIBFT)/%.o) \
 
-AR = ar rcs
-
-RM = rm -f
-
-all : mlx $(NAME)
+RM = rm -rf
 
 mlx :
-	@$(MAKE) -sC $(DIRMLX)
+	@echo "$(CYAN)\nCloning MinilibX repository...\n$(RESET)"
+	@$(RM) $(MLX_DIR)  > /dev/null
+	@git clone $(MLX_REPO) ./includes/minilibx-linux/ > /dev/null 2>&1
+	@$(MAKE) -sC $(MLX_DIR) 
+	@echo "\n\n$(BLUE)gcc *.c minilibx done$(RESET)"
 
-$(OBJ_DIR_CUB3D)/%.o $(OBJ_DIR_LIBFT)/%.o: %.c
+lib:
+	@$(MAKE) -sC $(LIBFT_DIR)
+	@echo "$(BLUE)gcc *.c libft done$(RESET)"
+
+gnl:
+	@$(MAKE) -sC $(GNL_DIR)
+	@echo "$(BLUE)gcc *.c get_next_line done$(RESET)"
+
+printf:
+	@$(MAKE) -sC $(PRINTF_DIR)
+	@echo "$(BLUE)gcc *.c ft_printf done$(RESET)"
+
+all : mlx lib gnl printf $(NAME)
+
+$(OBJ_DIR_CUB3D)/%.o: %.c
 	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJS) Makefile includes/minilibx-linux/mlx.h
-	@$(CC) $(CFLAGS) $(OBJS) $(MLXEXE) -o $(NAME)
-	@echo "\033[5;36m-gcc *.c minilibx done\033[0m"
-	@echo "\033[5;36m\n-gcc *.c libft done\033[0m"
-	@echo "\033[5;36m-gcc *.c get_next_line done\033[0m"
-	@echo "\033[5;36m-gcc *.c ft_printf done\033[0m"
-	@echo "\033[5;36m-gcc *.c cub3D done\n\033[0m"
-	@echo "\033[1;32m[Make : 'cub3D' is done]\033[0m"
+$(NAME): $(OBJS) Makefile includes/minilibx-linux/mlx.h includes/libft.h includes/ft_printf.h includes/get_next_line.h
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT_EXE) $(PRINTF_EXE) $(GNL_EXE) $(MLX_EXE) -o $(NAME)
+	@echo "$(BLUE)gcc *.c cub3D done\n$(RESET)"
+	@echo "$(GREEN)[Make : 'cub3D' is done]$(RESET)"
 
 clean :
+	@$(MAKE) -sC $(LIBFT_DIR) clean
+	@$(MAKE) -sC $(PRINTF_DIR) clean
+	@$(MAKE) -sC $(GNL_DIR) clean
 	@$(RM) $(OBJS)
-	@$(RM) -rf $(OBJ_DIR_CUB3D)
-	@$(RM) -rf $(OBJ_DIR_LIBFT)
-	@echo "\033[1;33m[.o] Object files and directories removed\033[0m"
+	@$(RM) $(OBJ_DIR_CUB3D)
+	@echo "$(YELLOW)Object files and directories removed$(RESET)"
 
 fclean : clean
 	@$(RM) $(NAME)
-	@echo "\033[1;33m[.a] Binary file removed\033[0m"
+	@$(RM) $(LIBFT_EXE)
+	@$(RM) $(GNL_EXE)
+	@$(RM) $(PRINTF_EXE)
+	@echo "$(YELLOW)Binary file removed$(RESET)"
 
 re : fclean all
-
-.PHONY: all clean fclean re
