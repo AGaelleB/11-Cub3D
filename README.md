@@ -76,4 +76,6 @@ Run the game with a valid map file (`.cub` format) located in the `maps` folder:
 
 ## **Demo of the Project**
 
-
+<div align="center">
+  <img src="./Docs/cube_3d_game.gif" alt="Project Demo">
+</div>
