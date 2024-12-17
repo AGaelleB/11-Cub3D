@@ -1,6 +1,8 @@
 # **Cub3D: My First RayCaster**
+![Screenshot from 2024-12-17 14-20-17](https://github.com/user-attachments/assets/ad72ebe7-7e85-4385-a040-228cbbc4fa9c)
 
 ## **Project Description**
+
 The objective of this project is to create a dynamic 3D view within a maze using **ray-casting** techniques, similar to the classic **Wolfenstein 3D**. We used the **MiniLibX** library to handle graphics, windows, and events.
 
 ---
